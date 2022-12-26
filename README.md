@@ -4,6 +4,10 @@ This repository contains a collection of data structures
 
 > Note: The data structures are implemented in Javascript
 
+## Go to data structure detail page
+
+- [Binary Search Tree](./binary-search-tree.md)
+
 ## What is a data structure?
 
 A data structure is a particular way of organizing data in a computer so that it can be used effectively.
