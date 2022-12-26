@@ -80,3 +80,5 @@ define BinarySearchTree class
         value is equal to current node's value, return current node
     if loop finishes, return false
 ```
+
+> _Note: A Binary Search Tree can also be implemented with recursion_
