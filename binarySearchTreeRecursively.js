@@ -36,6 +36,7 @@ class binarySearchTree {
             return searchTree(node.right)
           }
         } else {
+          // if value is equal to node.value, dont insert it
           return null
         }
       }
