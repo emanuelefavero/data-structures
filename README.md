@@ -6,7 +6,7 @@ This repository contains a collection of data structures
 
 ## Go to data structure detail page
 
-- [Binary Search Tree](./binary-search-tree.md)
+- [Binary Search Tree](binary-search-tree.md)
 
 ## What is a data structure?
 
