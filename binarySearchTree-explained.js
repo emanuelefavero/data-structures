@@ -47,6 +47,7 @@ class BinarySearchTree {
         // Move to the right node and repeat the process
         currentNode = currentNode.right
       } else {
+        // If the value is equal to the current node, do nothing and return object
         return this
       }
     }

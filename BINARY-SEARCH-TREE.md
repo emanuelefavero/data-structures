@@ -6,6 +6,8 @@ A binary search tree (BST) is a data structure that allows fast lookup, addition
 
 ![Binary Search Tree](./binary-search-tree.png)
 
+_Note: A binary search tree only has two children per node, and the left child is always less than the parent node, while the right child is always greater than the parent node._
+
 ### Every node has the following properties
 
 - **key**: the stored value in the node
@@ -27,3 +29,54 @@ A binary search tree (BST) is a data structure that allows fast lookup, addition
 - **delete**: delete a node from the tree
 
 > BST structure is widely used in different types of search operations, and other types of tree structures are used to create expression solvers and in wireless networking.
+
+### BST pseudo code
+
+```text
+define Node class (value argument)
+  value = value argument
+  left = null
+  right = null
+
+define BinarySearchTree class
+  initialize root with null
+
+  define insert method (value argument)
+    create a new node with value
+
+      if root is null
+        set root to new node
+
+      else
+        set current node to root
+
+        while current node is not null
+          if value is less than current node's value
+            if current node's left child is null
+              set current node's left child to new node
+              break loop (return this)
+            else
+              set current node to its left child
+          else if value is greater than current node's value
+            if current node's right child is null
+              set current node's right child to new node
+              break loop
+            else
+              set current node to its right child
+          else
+            value is equal to current node's value, do nothing (return this)
+
+  define search method (value argument)
+    if root is null return false
+
+    set current node to root
+
+    while current node is not null
+      if value is less than current node's value
+        set current node to its left child
+      else if value is greater than current node's value
+        set current node to its right child
+      else
+        value is equal to current node's value, return current node
+    if loop finishes, return false
+```
