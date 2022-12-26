@@ -40,7 +40,7 @@ class binarySearchTree {
           return null
         }
       }
-      return searchTree(node)
+      return searchTree(node) // here is where the recursion starts
     }
   }
 
