@@ -8,6 +8,13 @@ A binary search tree (BST) is a data structure that allows fast lookup, addition
 
 _Note: A binary search tree only has two children per node, and the left child is always less than the parent node, while the right child is always greater than the parent node._
 
+### When to use a Binary Search Tree
+
+- When you need to store data in a sorted order
+- When you need to search for data quickly
+- When you need to insert and delete data quickly
+- When data is constantly being added and removed like in a map and set object
+
 ### Every node has the following properties
 
 - **key**: the stored value in the node
