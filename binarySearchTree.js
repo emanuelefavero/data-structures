@@ -93,7 +93,7 @@ const tree = new BinarySearchTree()
 tree.insert(5).insert(15).insert(3).insert(20)
 
 // Search
-console.log(tree.search(5)) // true
+console.log(tree.search(5)) // true, the Node object with value 5 will be returned
 // console.log(tree.search(1)) // false
 
 let found = tree.search(20)
