@@ -7,6 +7,8 @@ This repository contains a collection of data structures
 ## Go to data structure detail page
 
 - [Binary Search Tree](./markdown/BINARY-SEARCH-TREE.md)
+- [Stack](./markdown/STACK.md)
+- [Queue](./markdown/QUEUE.md)
 
 ## What is a data structure?
 
