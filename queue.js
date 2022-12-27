@@ -42,3 +42,15 @@ queue.enqueue(3)
 
 console.log(queue.getQueue()) // [1, 2, 3]
 console.log(queue.dequeue()) // 1
+
+// Printing queue
+const printQueue = new Queue()
+printQueue.enqueue('First')
+printQueue.enqueue('Second')
+printQueue.enqueue('Third')
+function print(printQueue) {
+  while (printQueue.size() > 0) {
+    console.log(printQueue.dequeue())
+  }
+}
+print(printQueue)
