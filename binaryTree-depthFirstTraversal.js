@@ -54,6 +54,7 @@ class BinaryTree {
   }
 
   // ascending order - left, root, right
+  // NOTE: a binary search tree is sorted in ascending order by definition (check binarySearchTree.js)
   inOrder() {
     let result = []
     let current = this.root
