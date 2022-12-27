@@ -66,6 +66,23 @@ class BinarySearchTree {
 
     return false
   }
+
+  // breadth first traversal - left to right
+  // ascending order (since this is a BST)
+  getAll() {
+    let result = []
+    let queue = []
+    let current = this.root
+    queue.push(current)
+
+    while (queue.length) {
+      current = queue.shift() // remove first element and return it
+      result.push(current.value)
+      if (current.left) queue.push(current.left)
+      if (current.right) queue.push(current.right)
+    }
+    return result
+  }
 }
 
 /*
@@ -95,6 +112,9 @@ tree.insert(5).insert(15).insert(3).insert(20)
 // Search
 console.log(tree.search(5)) // true, the Node object with value 5 will be returned
 // console.log(tree.search(1)) // false
+
+// get the whole tree as an array - note that since this is a BST, the array will be sorted
+console.log(tree.getAll()) // [ 5, 3, 15, 20 ]
 
 let found = tree.search(20)
 if (found) {
