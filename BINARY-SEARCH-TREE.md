@@ -4,7 +4,7 @@ A binary search tree (BST) is a data structure that allows fast lookup, addition
 
 > On average, this means that each comparison allows the operations to skip about half of the tree, so that each lookup, insertion or deletion takes time proportional to the logarithm of the number of items stored in the tree. This is much better than the linear time required to find items by key in an (unsorted) array, but slower than the corresponding operations on hash tables.
 
-![Binary Search Tree](./binary-search-tree.png)
+![Binary Search Tree](./images/binary-search-tree.png)
 
 _Note: A binary search tree only has two children per node, and the left child is always less than the parent node, while the right child is always greater than the parent node._
 
