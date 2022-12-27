@@ -68,6 +68,25 @@ class BinarySearchTree {
   }
 }
 
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+// IMPLEMENTATION
 const tree = new BinarySearchTree()
 
 // Insertion

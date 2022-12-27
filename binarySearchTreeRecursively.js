@@ -98,6 +98,25 @@ class binarySearchTree {
   }
 }
 
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+// IMPLEMENTATION
 const bst = new binarySearchTree()
 
 bst.insert(9)

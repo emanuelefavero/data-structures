@@ -34,6 +34,25 @@ class Stack {
   }
 }
 
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+// IMPLEMENTATION
 const stack = new Stack() // { data: [] }
 
 stack.push(1)
@@ -49,6 +68,24 @@ console.log(stack.isEmpty()) // false
 console.log(stack.size()) // 2
 console.log(stack.getStack()) // [1, 2]
 stack.clear()
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 // Reverse a string using a stack
 const stringStack = new Stack()
