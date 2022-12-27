@@ -18,7 +18,7 @@ class BinarySearchTree {
     const newNode = new Node(value)
 
     // if root is null
-    if (!this.root) {
+    if (this.root === null) {
       this.root = newNode
       return this
     }
@@ -28,13 +28,13 @@ class BinarySearchTree {
     // Loop through the nodes
     while (currentNode) {
       if (value < currentNode.value) {
-        if (!currentNode.left) {
+        if (currentNode.left === null) {
           currentNode.left = newNode
           return this // return the whole object, needed for chaining
         }
         currentNode = currentNode.left
       } else if (value > currentNode.value) {
-        if (!currentNode.right) {
+        if (currentNode.right === null) {
           currentNode.right = newNode
           return this
         }
@@ -47,7 +47,7 @@ class BinarySearchTree {
 
   // Search
   search(value) {
-    if (!this.root) return false
+    if (this.root === null) return false
 
     let currentNode = this.root
 
