@@ -53,7 +53,7 @@ class BinaryTree {
     return result
   }
 
-  // ascending order - left, root, right
+  // sorted (ascending order) - left, root, right
   // NOTE: a binary search tree is sorted in ascending order by definition (check binarySearchTree.js)
   inOrder() {
     let result = []
@@ -69,7 +69,7 @@ class BinaryTree {
     return result
   }
 
-  // descending order - right, root, left
+  // sorted (descending order) - right, root, left
   // reverse of inOrder
   inOrderReverse() {
     let result = []
