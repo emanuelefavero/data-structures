@@ -16,6 +16,7 @@ Binary Tree Traversal is the process of visiting (checking, printing and/or upda
 >
 > _Note: A [binary search tree](./BINARY-SEARCH-TREE.md) (BST) is a form of binary tree where the left child is always less than the parent node, while the right child is always greater than the parent node._
 >
+> - IMPORTANT: all traversal methods are implemented the same in a binary search tree and a binary tree
 > - See [Binary Search Tree](./BINARY-SEARCH-TREE.md) for how and when to use a binary tree in a program
 
 ## Time and Space Complexity

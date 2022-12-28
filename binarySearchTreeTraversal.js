@@ -133,3 +133,5 @@ console.log(bst.postOrder()) // left, right, root
 
 // breadth first
 console.log(bst.breadthFirst()) // left to right, top to bottom
+
+// NOTE: A binary search tree traversal differs from a binary tree traversal only in that a binary search tree is sorted, all traversal methods are the same
