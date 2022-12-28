@@ -10,6 +10,11 @@ Binary Tree Traversal is the process of visiting (checking, printing and/or upda
 
 - See [Binary Search Tree](./BINARY-SEARCH-TREE.md)
 
+## Time and Space Complexity
+
+- Depth First Traversals: O(n) time and O(n) space
+- Breadth First Traversal: O(n) time and O(n) space
+
 ## Depth First Traversals
 
 A binary tree depth traversal is a method of traversing through the nodes of a binary tree. There are three main types of depth traversals: pre-order, in-order, and post-order.
