@@ -87,6 +87,7 @@ postOrder(node)
 ## When to use depth first traversal
 
 - When solving puzzles such as mazes
+- to identify routes in a map
 - When the binary tree is deep and solutions are rare
 
 ## When NOT to use depth first traversal
@@ -134,7 +135,11 @@ breadthFirst(node)
 
 - when you know a solution is not far from the root of the tree
 
-- If the tree is very deep and solutions are rare
+- when you need to identify persons within a certain distance 'd' from a person in social networks
+
+- in peer to peer networks
+
+- to identify routes in a maze or map
 
 ## When NOT to use breadth first traversal
 
