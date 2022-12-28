@@ -1,14 +1,22 @@
 # Binary Tree Traversal
 
-_A binary tree is a tree data structure in which each node has at most two children, which are referred to as the left child and the right child._
-
 Binary Tree Traversal is the process of visiting (checking, printing and/or updating) each node in a tree data structure, exactly once. Such traversals are classified by the order in which the nodes are visited.
 
-> Note: A [binary search tree](./BINARY-SEARCH-TREE.md) (BST) is a form of binary tree where the left child is always less than the parent node, while the right child is always greater than the parent node.
+## Types of Binary Tree Traversals
 
-## When to use a Binary Tree
+- [Depth First Traversals](#depth-first-traversals)
 
-- See [Binary Search Tree](./BINARY-SEARCH-TREE.md)
+  - [Pre-order Traversal](#pre-order-traversal)
+  - [In-order Traversal](#in-order-traversal)
+  - [Post-order Traversal](#post-order-traversal)
+
+- [Breadth First Traversal](#breadth-first-traversal)
+
+> A binary tree is a tree data structure in which each node has at most two children, which are referred to as the left child and the right child.
+>
+> _Note: A [binary search tree](./BINARY-SEARCH-TREE.md) (BST) is a form of binary tree where the left child is always less than the parent node, while the right child is always greater than the parent node._
+>
+> - See [Binary Search Tree](./BINARY-SEARCH-TREE.md) for how and when to use a binary tree in a program
 
 ## Time and Space Complexity
 
@@ -155,3 +163,6 @@ breadthFirst(node)
 - [Breadth First Traversal](https://en.wikipedia.org/wiki/Breadth-first_search)
 - [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree#:~:text=A%20binary%20tree%20is%20a%20rooted%20tree%20that%20is%20also,to%20it%20a%20level%20below.)
 - [Singleton Pattern](https://en.wikipedia.org/wiki/Singleton_pattern)
+
+| **[Go to top ⬆](#binary-tree-traversal)** |
+| ----------------------------------------- |
