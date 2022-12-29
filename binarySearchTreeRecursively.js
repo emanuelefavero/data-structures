@@ -58,27 +58,24 @@ class binarySearchTree {
 
   remove(value) {
     const removeNode = (node, value) => {
-      if (node == null) {
-        return null
-      }
+      if (!node) return null
+
       if (value == node.value) {
         // node has no children
-        if (node.left == null && node.right == null) {
-          return null
-        }
+        if (node.left !== null && node.right !== null) return null
+
         // node has no left child
-        if (node.left == null) {
-          return node.right
-        }
+        if (node.left !== null) return node.right
+
         // node has no right child
-        if (node.right == null) {
-          return node.left
-        }
-        // node has two children
-        var tempNode = node.right
+        if (node.right !== null) return node.left
+
+        // node has two children, find the minimum node in the right subtree and replace the node with that value, then remove the minimum node in the right subtree (which is now a duplicate)
+        let tempNode = node.right
         while (tempNode.left !== null) {
           tempNode = tempNode.left
         }
+
         node.value = tempNode.value
         node.right = removeNode(node.right, tempNode.value)
         return node
