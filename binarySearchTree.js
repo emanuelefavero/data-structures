@@ -120,3 +120,12 @@ let found = tree.search(20)
 if (found) {
   console.log(found.value)
 }
+
+// TIP: How to search in a binary search tree?
+// 1. if this.root === null return false
+// 2. define current = this.root
+// 3. while current:
+//    if value is === current.value return true
+//    else if value < current.value, current = current.left
+//    else current = current.right
+// 4. return false after the loop
