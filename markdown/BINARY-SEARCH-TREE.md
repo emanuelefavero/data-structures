@@ -88,4 +88,18 @@ define BinarySearchTree class
     if loop finishes, return false
 ```
 
-> _Note: A Binary Search Tree can also be implemented with recursion_
+> _Note: A Binary Search Tree can also be implemented with recursion, see `binarySearchTreeRecursively.js`_
+
+### BST Big O
+
+A balanced binary search tree has a time complexity of O(log n) for insertion, deletion and searching. A balanced tree is one where the height of the tree is O(log n). A tree is balanced if the difference between the height of the left and right subtrees of any node is not more than 1.
+
+> If you ever want to convert an array to a binary search tree you better first randomize the order of the data since it can cause the tree to be unbalanced
+
+### Self Balancing BST
+
+A self-balancing binary search tree is a binary search tree that automatically keeps its height small in the face of arbitrary item insertions and deletions. The height of a tree is the length of the longest path from the root to a leaf.
+
+### AVL Tree
+
+An AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, re-balancing is done to restore this property. Lookup, insertion, and deletion all take O(log n). Insertions and deletions may require the tree to be rebalanced by one or more tree rotations.
