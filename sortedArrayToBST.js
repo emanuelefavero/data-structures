@@ -31,6 +31,6 @@ function inOrder(node) {
   inOrder(node.right)
 }
 
-let array = [1, 2, 3, 4, 5, 6]
+let array = [1, 2, 3, 4, 5, 6, 7]
 root = sortedArrayToBST(array, 0, array.length - 1)
 inOrder(root)
