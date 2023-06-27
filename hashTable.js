@@ -32,3 +32,4 @@ for (let [key, value] of hashTable2) {
 }
 
 // You can also implement your own hash table
+// @see ./hashTable-own-implementation
