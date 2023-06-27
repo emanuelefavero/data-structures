@@ -2,28 +2,16 @@
 // The intersection is a third array that contains all the values contained within the first two arrays
 // O(n) - n + m
 function intersection(array1, array2) {
-  let largerArray
-  let smallerArray
   let hashTable = {}
   let output = []
 
-  if (array1.length > array2.length) {
-    largerArray = array1
-    smallerArray = array2
-  } else {
-    largerArray = array2
-    smallerArray = array1
-  }
-
-  largerArray.forEach((value) => {
+  array1.forEach((value) => {
     hashTable[value] = true
   })
 
-  for (let i = 0; i < smallerArray.length; i++) {
-    if (hashTable[smallerArray[i]]) {
-      output.push(smallerArray[i])
-    }
-  }
+  array2.forEach((value) => {
+    if (hashTable[value]) output.push(value)
+  })
 
   return output
 }
