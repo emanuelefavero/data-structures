@@ -2,6 +2,7 @@
 // We classically create nested loops to compare each number between each other and the result will be a time efficiency of O(n * m)
 
 // We can improve this by using a hash table
+// O(n) - n is the total number of items between the two arrays (n + m)
 function arraySubset(array1, array2) {
   let largerArray
   let smallerArray
