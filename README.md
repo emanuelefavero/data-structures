@@ -10,6 +10,7 @@ This repository contains a collection of data structures
 - [Binary Tree Traversal](./markdown/BINARY-TREE-TRAVERSAL.md)
 - [Stack](./markdown/STACK.md)
 - [Queue](./markdown/QUEUE.md)
+- [Hash Table](./markdown/HASH-TABLE.md)
 
 ## What is a data structure?
 
