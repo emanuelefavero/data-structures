@@ -1,4 +1,3 @@
-// Define a LinkedList class
 class Node {
   constructor(value) {
     this.value = value
@@ -9,90 +8,46 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null
-    this.tail = null
   }
 
-  append(value) {
-    const newNode = new Node(value)
+  // CREATE
+  insert(value) {
+    let newNode = new Node(value)
 
-    if (this.head === null) {
+    if (!this.head) {
       this.head = newNode
-      this.tail = newNode
-      return this
+      return
     }
 
     let current = this.head
 
     while (current) {
-      if (current.next === null) {
+      if (!current.next) {
         current.next = newNode
-        this.tail = newNode
-        return this
+        return
       }
 
-      current = current.next // move to next node
+      current = current.next
     }
 
-    return this
+    return
   }
 
-  prepend(value) {
-    const newNode = new Node(value)
+  insertNewHead(value) {
+    let newNode = new Node(value)
+    let current = this.head
 
-    if (this.head === null) {
-      this.head = newNode
-      this.tail = newNode
-      return this
-    }
-
-    let temp = this.head
     this.head = newNode
-    this.head.next = temp
-
-    return this
+    newNode.next = current
   }
 
-  // returns the total number of nodes in the list
-  size() {
+  // READ
+  readAtIndex(index) {
     let current = this.head
     let i = 0
 
     while (current) {
-      current = current.next
-      i++
-    }
-
-    return i
-  }
-
-  toArray() {
-    const result = []
-    let current = this.head
-
-    while (current) {
-      result.push(current.value)
-      current = current.next
-    }
-
-    return result
-  }
-
-  getHead() {
-    return this.head
-  }
-
-  getTail() {
-    return this.tail
-  }
-
-  get(index) {
-    let current = this.head
-    let i = 0
-
-    while (current) {
-      if (i === index) {
-        return current
-      }
+      if (i === index) return current
 
       current = current.next
       i++
@@ -101,43 +56,16 @@ class LinkedList {
     return null
   }
 
-  // remove the last node
-  pop() {
-    let current = this.head
-
-    while (current) {
-      if (current.next === this.tail) {
-        current.next = null
-        this.tail = current
-        return this
-      }
-
-      current = current.next
-    }
-
-    return this
-  }
-
-  contains(value) {
-    let current = this.head
-
-    while (current) {
-      if (current.value === value) {
-        return true
-      }
-      current = current.next
-    }
-
-    return false
+  readHead() {
+    return this.head
   }
 
   find(value) {
     let current = this.head
 
     while (current) {
-      if (current.value === value) {
-        return current
-      }
+      if (value === current.value) return current
+
       current = current.next
     }
 
@@ -149,103 +77,68 @@ class LinkedList {
     let current = this.head
 
     while (current) {
-      result += `(${current.value}) -> `
+      result += `${current.value} `
       current = current.next
     }
 
-    result += `${current}` // null
     return result
   }
 
-  insertAt(index, value) {
+  // UPDATE
+  update(index, newValue) {
     let current = this.head
-
-    if (index === 0) {
-      this.prepend(value)
-      return this
-    }
-
     let i = 0
-    while (current) {
-      if (i === index - 1) {
-        const newNode = new Node(value)
-        newNode.next = current.next
 
-        current.next = newNode
-        return this
+    while (current) {
+      if (i === index) {
+        current.value = newValue
+        return
       }
 
       current = current.next
       i++
     }
-
-    return this
   }
 
-  removeAt(index) {
-    let current = this.head
-
-    if (index === 0) {
-      this.head = this.head.next
-
-      if (this.head === null) {
-        this.tail = null
-      }
-
-      return this
-    }
-
-    let i = 0
-    while (current) {
-      if (i === index - 1) {
-        current.next = current.next.next
-
-        if (current.next === null) {
-          this.tail = current
-
-          return this
-        }
-      }
-
-      current = current.next
-      i++
-    }
-
-    return this
-  }
-
+  // REMOVE
   removeHead() {
     this.head = this.head.next
+  }
 
-    if (this.head === null) {
-      this.tail = null
+  removeLast() {
+    let current = this.head
+
+    while (current) {
+      //  If the next node pints to null
+      if (!current.next.next) {
+        // remove next node
+        current.next = null
+        return
+      }
+
+      current = current.next
     }
-
-    return this
   }
 }
 
-const ll = new LinkedList()
+const linkedList = new LinkedList()
+linkedList.insert('hello')
+linkedList.insert('how')
 
-ll.append(10)
-ll.append(20)
-ll.append(30)
+console.log(linkedList)
+console.log(linkedList.readAtIndex(1))
+console.log(linkedList.readHead())
+console.log(linkedList.find('how'))
+console.log(linkedList.toString())
 
-ll.prepend(5)
-ll.insertAt(1, 100) // insert 100 at index 1
+linkedList.removeHead()
+console.log(linkedList)
 
-console.log(ll.size()) // 5
-console.log(ll.toArray()) // [5, 100, 10, 20, 30]
-console.log(ll.getHead()) // Node { value: 5...
-console.log(ll.getTail()) // Node { value: 30...
-console.log(ll.get(2)) // Node { value: 10...
-console.log(ll.toString()) // (5) -> (100) -> (10) -> (20) -> null)
-ll.pop()
-console.log(ll.toString()) // (5) -> (100) -> (10) -> (20) -> null)
-console.log(ll.contains(20)) // true
-console.log(ll.find(20)) // Node { value: 20...)
+linkedList.insertNewHead('hi')
+console.log(linkedList)
 
-ll.removeAt(1)
-console.log(ll.toString()) // (5) -> (10) -> (20) -> null))
-ll.removeHead()
-console.log(ll.toString()) // (10) -> (20) -> null))
+linkedList.removeLast()
+console.log(linkedList)
+
+linkedList.update(0, 'where')
+console.log(linkedList)
