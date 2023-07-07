@@ -1,3 +1,6 @@
+// A Stack is a data structure that uses a Last In First Out (LIFO) order, meaning the last item added to the stack will be the first item removed from the stack. A Stack is a good data structure to use when you want to make sure the last item added is the first item removed
+// TIP: A Stack data structure is a good use case for an array because we only add and remove from the end of the array, which is O(1)
+
 class Stack {
   constructor() {
     this.data = []
