@@ -39,18 +39,20 @@ class LinkedList {
 
     // 2. Loop through the linked list
     while (current) {
-      // 3. Assign `next` to the next node
+      // we assign the value of current.next to the variable next. This preserves the reference to the next node in the original list, so we don't lose it when we modify current
       next = current.next
-      // update the `next` pointer of the current node to point to the `previous` node
-      // TIP: This reverses the link between the current node and its next node
+
+      // we assign previous to current.next. This step reverses the pointer of the current node by pointing it to the previous node. Initially, the current.next points forward, but after this line, it points backward.
       current.next = previous
-      // Move `previous` to the `current` node because after the reversal, the `current` node becomes the previous node for the next iteration
+
+      // After reversing the pointer, we update previous to current. This step moves previous to the current node since we'll need it as the previous node for the next iteration.
       previous = current
-      // Move `current` to the `next` node, preparing for the next iteration
+
+      // Finally, we update current to next. This step moves current to the next node, which allows us to continue traversing the original list.
       current = next
     }
 
-    // 4. After the loops ends, all nodes have been reversed. Set the head to the last node (which is stored in the `previous` variable)
+    // 3. After the loops ends, all nodes have been reversed. Set the head to the last node (which is stored in the `previous` variable)
     this.head = previous
   }
 }
