@@ -1,3 +1,7 @@
+// A Queue is a data structure that uses a First In First Out (FIFO) order, meaning the first item added to the queue will be the first item removed from the queue. A Queue is a good data structure to use when you want to make sure the first item added is the first item removed
+// BEWARE: This implementation uses an array, but this is not a good data structure for a Queue since removing from the beginning of an array is O(n)
+// TIP: See queue-linked-list.js for a better implementation
+
 class Queue {
   constructor() {
     this.queue = []
