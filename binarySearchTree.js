@@ -68,7 +68,6 @@ class BinarySearchTree {
   // in order (ascending) depth first traversal
   inOrder() {
     let result = []
-    let current = this.root
 
     function traverse(node) {
       if (node.left) traverse(node.left)
@@ -76,7 +75,7 @@ class BinarySearchTree {
       if (node.right) traverse(node.right)
     }
 
-    traverse(current)
+    traverse(this.root)
     return result
   }
 }
