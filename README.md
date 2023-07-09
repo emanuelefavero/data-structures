@@ -12,6 +12,8 @@ This repository contains a collection of data structures
 - [Queue](./markdown/QUEUE.md)
 - [Hash Table](./markdown/HASH-TABLE.md)
 
+> See the [data-structures.txt](./data-structures.txt) file for an ascii representation of the data structures
+
 ## What is a data structure?
 
 A data structure is a particular way of organizing data in a computer so that it can be used effectively.
