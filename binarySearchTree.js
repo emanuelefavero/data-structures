@@ -15,30 +15,33 @@ class BinarySearchTree {
 
   // Insertion
   insert(value) {
-    const newNode = new Node(value)
+    let newNode = new Node(value)
 
     // if root is null
-    if (this.root === null) {
+    if (!this.root) {
       this.root = newNode
-      return this
+      return this // return the whole object, needed for chaining
+      // TIP: e.g. tree.insert(5).insert(15).insert(3).insert(20)
     }
 
-    let currentNode = this.root
+    let current = this.root
 
     // Loop through the nodes
-    while (currentNode) {
-      if (value < currentNode.value) {
-        if (currentNode.left === null) {
-          currentNode.left = newNode
-          return this // return the whole object, needed for chaining
-        }
-        currentNode = currentNode.left
-      } else if (value > currentNode.value) {
-        if (currentNode.right === null) {
-          currentNode.right = newNode
+    while (current) {
+      if (value < current.value) {
+        if (!current.left) {
+          current.left = newNode
           return this
         }
-        currentNode = currentNode.right
+
+        current = current.left
+      } else if (value > current.value) {
+        if (!current.right) {
+          current.right = newNode
+          return this
+        }
+
+        current = current.right
       } else {
         return this
       }
@@ -47,19 +50,19 @@ class BinarySearchTree {
 
   // Search
   search(value) {
-    if (this.root === null) return false
+    if (!this.root) return false
 
-    let currentNode = this.root
+    let current = this.root
 
     // Loop through the nodes
-    while (currentNode) {
-      if (value < currentNode.value) {
-        currentNode = currentNode.left
-      } else if (value > currentNode.value) {
-        currentNode = currentNode.right
+    while (current) {
+      if (value < current.value) {
+        current = current.left
+      } else if (value > current.value) {
+        current = current.right
       } else {
         // Return the found Node object
-        return currentNode
+        return current
         // return true
       }
     }
@@ -72,11 +75,13 @@ class BinarySearchTree {
   getAll() {
     let result = []
     let queue = []
+
     let current = this.root
     queue.push(current)
 
     while (queue.length) {
       current = queue.shift() // remove first element and return it
+
       result.push(current.value)
       if (current.left) queue.push(current.left)
       if (current.right) queue.push(current.right)
@@ -104,7 +109,7 @@ class BinarySearchTree {
 */
 
 // IMPLEMENTATION
-const tree = new BinarySearchTree()
+let tree = new BinarySearchTree()
 
 // Insertion
 tree.insert(5).insert(15).insert(3).insert(20)
