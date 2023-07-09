@@ -17,10 +17,9 @@ _Note: A binary search tree only has two children per node, and the left child i
 
 ### Every node has the following properties
 
-- **key**: the stored value in the node
+- **value**: the stored value in the node
 - **left**: the pointer to the left child of the node
 - **right**: the pointer to the right child of the node
-- **parent**: the pointer to the parent node
 
 ### BTS properties
 
@@ -28,12 +27,6 @@ _Note: A binary search tree only has two children per node, and the left child i
 - The **left child** of a node is always less than its parent node.
 - The **right child** of a node is always greater than its parent node.
 - A **leaf node** is a node with no children.
-
-### BST operations
-
-- **insert**: insert a new node in the tree
-- **search**: search a node in the tree
-- **delete**: delete a node from the tree
 
 > BST structure is widely used in different types of search operations, and other types of tree structures are used to create expression solvers and in wireless networking.
 
