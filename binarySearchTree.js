@@ -1,4 +1,4 @@
-// Binary Search Tree - Insertion and Search
+// The Binary Search Tree data structure has a time complexity of O(log n) for insertion, search, and deletion (when balanced). The worst case time complexity is O(n) when the tree is unbalanced
 
 class Node {
   constructor(value) {
@@ -13,79 +13,70 @@ class BinarySearchTree {
     this.root = null
   }
 
-  // Insertion
+  // INSERT
   insert(value) {
     let newNode = new Node(value)
 
-    // if root is null
     if (!this.root) {
       this.root = newNode
-      return this // return the whole object, needed for chaining
-      // TIP: e.g. tree.insert(5).insert(15).insert(3).insert(20)
+      return
     }
 
     let current = this.root
 
-    // Loop through the nodes
     while (current) {
       if (value < current.value) {
         if (!current.left) {
           current.left = newNode
-          return this
+          return
         }
 
         current = current.left
       } else if (value > current.value) {
         if (!current.right) {
           current.right = newNode
-          return this
+          return
         }
 
         current = current.right
       } else {
-        return this
+        return
       }
     }
   }
 
-  // Search
+  // SEARCH
   search(value) {
     if (!this.root) return false
 
     let current = this.root
 
-    // Loop through the nodes
     while (current) {
       if (value < current.value) {
         current = current.left
       } else if (value > current.value) {
         current = current.right
       } else {
-        // Return the found Node object
-        return current
-        // return true
+        // value found
+        return current.value
       }
     }
 
     return false
   }
 
-  // breadth first traversal - left to right
-  // ascending order (since this is a BST)
-  getAll() {
+  // in order (ascending) depth first traversal
+  inOrder() {
     let result = []
-    let queue = []
-
     let current = this.root
-    queue.push(current)
 
-    while (queue.length) {
-      current = queue.shift() // remove first element and return it
-
-      result.push(current.value)
-      if (current.left) queue.push(current.left)
-      if (current.right) queue.push(current.right)
+    function traverse(node) {
+      if (node.left) traverse(node.left)
+      result.push(node.value)
+      if (node.right) traverse(node.right)
     }
+
+    traverse(current)
     return result
   }
 }
@@ -99,38 +90,15 @@ class BinarySearchTree {
 
 
 
-
-
-
-
-
-
-
 */
 
-// IMPLEMENTATION
-let tree = new BinarySearchTree()
+let bst = new BinarySearchTree()
 
-// Insertion
-tree.insert(5).insert(15).insert(3).insert(20)
+bst.insert(20)
+bst.insert(10)
+bst.insert(5)
+bst.insert(15)
 
-// Search
-console.log(tree.search(5)) // true, the Node object with value 5 will be returned
-// console.log(tree.search(1)) // false
-
-// get the whole tree as an array - note that since this is a BST, the array will be sorted
-console.log(tree.getAll()) // [ 5, 3, 15, 20 ]
-
-let found = tree.search(20)
-if (found) {
-  console.log(found.value)
-}
-
-// TIP: How to search in a binary search tree?
-// 1. if this.root === null return false
-// 2. define current = this.root
-// 3. while current:
-//    if value is === current.value return true
-//    else if value < current.value, current = current.left
-//    else current = current.right
-// 4. return false after the loop
+console.log(bst.inOrder()) // [ 5, 10, 15, 20 ]
+console.log(bst.search(20)) // 20
+console.log(bst.search(40)) // false
