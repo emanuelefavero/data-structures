@@ -1,6 +1,6 @@
 class Node {
-  constructor(data) {
-    this.data = data
+  constructor(value) {
+    this.value = value
     this.left = null
     this.right = null
   }
@@ -12,41 +12,43 @@ class BinarySearchTree {
   }
 
   // Insertion
-  insert(data) {
-    const newNode = new Node(data)
+  insert(value) {
+    let newNode = new Node(value)
 
-    if (this.root === null) {
+    if (!this.root) {
       this.root = newNode
-      return this
+      return
     }
 
     let current = this.root
 
     while (current) {
-      if (data < current.data) {
-        if (current.left === null) {
+      if (value < current.value) {
+        if (!current.left) {
           current.left = newNode
-          return this
+          return
         }
+
         current = current.left
-      } else if (data > current.data) {
-        if (current.right === null) {
+      } else if (value > current.value) {
+        if (!current.right) {
           current.right = newNode
-          return this
+          return
         }
+
         current = current.right
       } else {
-        return this
+        return
       }
     }
   }
 
   // Depth first traversal - O(n)
   preOrder() {
-    const result = []
+    let result = []
 
-    const traverse = (node) => {
-      result.push(node.data)
+    function traverse(node) {
+      result.push(node.value)
       if (node.left) traverse(node.left)
       if (node.right) traverse(node.right)
     }
@@ -57,11 +59,11 @@ class BinarySearchTree {
   }
 
   inOrder() {
-    const result = []
+    let result = []
 
-    const traverse = (node) => {
+    function traverse(node) {
       if (node.left) traverse(node.left)
-      result.push(node.data)
+      result.push(node.value)
       if (node.right) traverse(node.right)
     }
 
@@ -71,11 +73,11 @@ class BinarySearchTree {
   }
 
   inOrderReversed() {
-    const result = []
+    let result = []
 
-    const traverse = (node) => {
+    function traverse(node) {
       if (node.right) traverse(node.right)
-      result.push(node.data)
+      result.push(node.value)
       if (node.left) traverse(node.left)
     }
 
@@ -85,12 +87,12 @@ class BinarySearchTree {
   }
 
   postOrder() {
-    const result = []
+    let result = []
 
-    const traverse = (node) => {
+    function traverse(node) {
       if (node.left) traverse(node.left)
       if (node.right) traverse(node.right)
-      result.push(node.data)
+      result.push(node.value)
     }
 
     traverse(this.root)
@@ -100,15 +102,15 @@ class BinarySearchTree {
 
   // Breadth first traversal - O(n)
   breadthFirst() {
-    const result = []
-    const queue = []
+    let result = []
+    let queue = []
 
     queue.push(this.root)
 
     while (queue.length) {
-      const current = queue.shift() // remove first element and return it
+      let current = queue.shift() // remove first element and return it
 
-      result.push(current.data)
+      result.push(current.value)
       if (current.left) queue.push(current.left)
       if (current.right) queue.push(current.right)
     }
@@ -117,7 +119,7 @@ class BinarySearchTree {
   }
 }
 
-const bst = new BinarySearchTree()
+let bst = new BinarySearchTree()
 
 bst.insert(5)
 bst.insert(15)
@@ -126,12 +128,13 @@ bst.insert(2)
 bst.insert(20)
 
 // depth first
-console.log(bst.inOrder()) // sorted
-console.log(bst.inOrderReversed()) // sorted reversed
-console.log(bst.preOrder()) // root, left, right
-console.log(bst.postOrder()) // left, right, root
+console.log(bst.inOrder()) // sorted, [ 2, 3, 5, 15, 20 ]
+console.log(bst.inOrderReversed()) // sorted reversed, [ 20, 15, 5, 3, 2 ]
+console.log(bst.preOrder()) // root, left, right, [ 5, 3, 2, 15, 20 ]
+console.log(bst.postOrder()) // left, right, root, [ 2, 3, 20, 15, 5 ]
 
 // breadth first
-console.log(bst.breadthFirst()) // left to right, top to bottom
+console.log(bst.breadthFirst()) // left to right, top to bottom,
+// [ 5, 3, 15, 2, 20 ]
 
 // NOTE: A binary search tree traversal differs from a binary tree traversal only in that a binary search tree is sorted, all traversal methods are the same
