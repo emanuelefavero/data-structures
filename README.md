@@ -28,4 +28,5 @@ A data structure is a particular way of organizing data in a computer so that it
 - [Hash Table](https://en.wikipedia.org/wiki/Hash_table)
 - [Tree](<https://en.wikipedia.org/wiki/Tree_(data_structure)>)
 - [Heap](<https://en.wikipedia.org/wiki/Heap_(data_structure)>)
+- [Trie](https://en.wikipedia.org/wiki/Trie?useskin%253Dvector)
 - [Graph](<https://en.wikipedia.org/wiki/Graph_(abstract_data_type)>)
