@@ -27,6 +27,8 @@ Heaps are commonly used to implement priority queues, where the element with the
 - When you need to maintain a dynamically changing collection of items sorted by priority.
 - When you need to perform operations such as insertions and deletions efficiently.
 
+> Note: The Heap is also used in the Heap Sort algorithm
+
 ## Heap Pseudo Code
 
 The following pseudo code demonstrates the basic operations of a binary max heap:
