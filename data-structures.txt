@@ -56,3 +56,13 @@ BINARY SEARCH TREE (UNBALANCED)
     7
      \
       9
+
+HEAP (BINARY MAX HEAP)
+
+        16
+       /  \
+      14   10
+     / \   / \
+    8   7  9  3
+   / \  /
+  2   4 1
