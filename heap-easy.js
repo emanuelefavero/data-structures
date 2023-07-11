@@ -1,5 +1,7 @@
 // * Heap (Binary Max Heap - Priority Queue)
 
+// NOTE: This implementation doesn't show the bubbleUp and bubbleDown methods, but they are the same as in heap.js
+
 class Heap {
   constructor() {
     this.heap = []
