@@ -6,11 +6,12 @@ This repository contains a collection of data structures
 
 ## Go to data structure detail page
 
-- [Binary Search Tree](./markdown/BINARY-SEARCH-TREE.md)
-- [Binary Tree Traversal](./markdown/BINARY-TREE-TRAVERSAL.md)
 - [Stack](./markdown/STACK.md)
 - [Queue](./markdown/QUEUE.md)
 - [Hash Table](./markdown/HASH-TABLE.md)
+- [Binary Search Tree](./markdown/BINARY-SEARCH-TREE.md)
+- [Binary Tree Traversal](./markdown/BINARY-TREE-TRAVERSAL.md)
+- [Heap](./markdown/HEAP.md)
 
 > See the [data-structures.txt](./data-structures.txt) file for an ascii representation of the data structures
 
