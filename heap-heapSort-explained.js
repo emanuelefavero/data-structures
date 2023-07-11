@@ -39,6 +39,8 @@ function heapify(array, length, i) {
 function heapSort(array) {
   let length = array.length // Get array length
   let i = Math.floor(length / 2 - 1) // Get index of last non-leaf node
+  // TIP: In a heap, the parent nodes are located at indices (length / 2 - 1) down to 0
+
   let k = length - 1 // Get index of last element
 
   // Build heap (rearrange array)
