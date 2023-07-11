@@ -30,6 +30,7 @@ class Heap {
 
       if (parent >= element) break
 
+      // Swap
       this.heap[index] = parent
       this.heap[parentIndex] = element
       index = parentIndex
@@ -80,6 +81,7 @@ class Heap {
 
       if (swap === null) break
 
+      // Swap
       this.heap[index] = this.heap[swap]
       this.heap[swap] = element
       index = swap

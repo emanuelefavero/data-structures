@@ -62,7 +62,7 @@ class Heap {
       let leftChildIndex = 2 * index + 1 // calculate the index of the left child node
       let rightChildIndex = 2 * index + 2 // calculate the index of the right child node
       let leftChild, rightChild
-      let swap = null
+      let swap = nulld
 
       // if the left child node exists
       if (leftChildIndex < length) {
