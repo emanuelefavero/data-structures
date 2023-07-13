@@ -15,6 +15,7 @@ class Trie {
     this.root = new TrieNode()
   }
 
+  // * INSERT
   insert(word) {
     let currentNode = this.root
 
@@ -31,6 +32,7 @@ class Trie {
     currentNode.children['*'] = true
   }
 
+  // * SEARCH
   search(word) {
     let currentNode = this.root
 
