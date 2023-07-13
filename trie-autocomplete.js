@@ -3,6 +3,7 @@
 
 class TrieNode {
   constructor() {
+    // NOTE: Each node in the trie is an object (hash table) with keys that are the characters in the word
     this.children = {}
   }
 }
@@ -19,14 +20,13 @@ class Trie {
     for (let i = 0; i < word.length; i++) {
       let char = word[i]
 
-      // NOTE: Each node in the trie is an object (hash table) with keys that are the characters in the word
-      if (currentNode.children[char]) {
-        currentNode = currentNode.children[char]
-      } else {
+      if (!currentNode.children[char]) {
         let newNode = new TrieNode()
         currentNode.children[char] = newNode
 
         currentNode = newNode
+      } else {
+        currentNode = currentNode.children[char]
       }
     }
 
