@@ -41,7 +41,7 @@ class Trie {
     // TIP: This is how we know if a word exists in the trie
     // TIP: We can assign any value to the '*' key, we just chose true here
     // TIP: To show the most used words first, we could assign a number between 1 and 10 to the '*' key and sort the words by that number
-    currentNode.children['*'] = null
+    currentNode.children['*'] = true
   }
 
   // * SEARCH
@@ -62,7 +62,7 @@ class Trie {
     }
 
     // Return true if the current node has a * as a child
-    return currentNode.children['*'] === null
+    return currentNode.children['*'] === true
   }
 }
 

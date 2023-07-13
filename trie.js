@@ -29,7 +29,7 @@ class Trie {
       currentNode = currentNode.children[char]
     }
 
-    currentNode.children['*'] = null
+    currentNode.children['*'] = true
   }
 
   // * SEARCH
@@ -44,7 +44,7 @@ class Trie {
       currentNode = currentNode.children[char]
     }
 
-    return currentNode.children['*'] === null
+    return currentNode.children['*'] === true
   }
 }
 

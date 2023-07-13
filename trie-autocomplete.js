@@ -30,7 +30,7 @@ class Trie {
       }
     }
 
-    currentNode.children['*'] = null
+    currentNode.children['*'] = true
   }
 
   // * SEARCH
@@ -45,8 +45,11 @@ class Trie {
       currentNode = currentNode.children[char]
     }
 
+    // We pass the currentNode here so that we can use this search method in the autoComplete method
     return currentNode
-    // return currentNode.children['*'] === null
+
+    // NOTE: If we don't need to use this search method in the autoComplete method, we can just return this:
+    // return currentNode.children['*'] === true
   }
 
   // * COLLECT ALL WORDS
