@@ -66,3 +66,17 @@ HEAP (BINARY MAX HEAP)
     8   7  9  3
    / \  /
   2   4 1
+
+TRIE
+
+['cat', 'car', 'do', 'dot']
+
+          (root)
+           /   \
+         'c'    'd'
+         /       \
+      'a'        'o'
+     /   \      /   \
+   't'  'r'   '*'   't'
+   /     |           |
+ '*'    '*'         '*'
