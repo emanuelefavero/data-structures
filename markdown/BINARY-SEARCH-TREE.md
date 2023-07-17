@@ -97,6 +97,10 @@ A self-balancing binary search tree is a binary search tree that automatically k
 
 An AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, re-balancing is done to restore this property. Lookup, insertion, and deletion all take O(log n). Insertions and deletions may require the tree to be rebalanced by one or more tree rotations.
 
+## References
+
+- [Binary Search Tree Wiki](https://en.wikipedia.org/wiki/Binary_search_tree)
+
 &nbsp;
 
 ---

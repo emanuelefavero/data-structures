@@ -44,9 +44,9 @@ define Stack class
     return length of items
 ```
 
-### Stack resources
+## References
 
-- [Stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)
+- [Stack Wiki](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)
 
 &nbsp;
 

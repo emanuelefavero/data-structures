@@ -42,9 +42,9 @@ define Queue class
     return length of items
 ```
 
-### Queue resources
+## References
 
-- [Queue](<https://en.wikipedia.org/wiki/Queue_(abstract_data_type)>)
+- [Queue Wiki](<https://en.wikipedia.org/wiki/Queue_(abstract_data_type)>)
 
 &nbsp;
 

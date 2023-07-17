@@ -159,7 +159,7 @@ breadthFirst(node)
 ## References
 
 - [Stack Overflow - Binary Tree Traversal](https://stackoverflow.com/questions/3332947/what-are-the-practical-factors-to-consider-when-choosing-between-depth-first-sea)
-- [Wikipedia - Tree traversal](https://en.wikipedia.org/wiki/Tree_traversal)
+- [Tree traversal](https://en.wikipedia.org/wiki/Tree_traversal)
 - [Depth First Traversal](https://en.wikipedia.org/wiki/Depth-first_search)
 - [Breadth First Traversal](https://en.wikipedia.org/wiki/Breadth-first_search)
 - [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree#:~:text=A%20binary%20tree%20is%20a%20rooted%20tree%20that%20is%20also,to%20it%20a%20level%20below.)

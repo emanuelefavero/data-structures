@@ -80,6 +80,10 @@ Graph traversal is the process of visiting all the nodes in a graph. There are t
 - **Depth-First Search (DFS)**: If you want to traverse all the vertices in a graph, use DFS. DFS is also useful when searching for a grandchild or a great-grandchild in a family tree
 - **Breadth-First Search (BFS)**: If you want to find the shortest path between two vertices. BFS is also useful when searching for the closest person or a friend in a social network (e.g. LinkedIn, Facebook)
 
+## References
+
+- [Graph Wiki](<https://en.wikipedia.org/wiki/Graph_(abstract_data_type)>)
+
 &nbsp;
 
 ---
