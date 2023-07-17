@@ -80,3 +80,17 @@ TRIE
    't'  'r'   '*'   't'
    /     |           |
  '*'    '*'         '*'
+
+GRAPH (undirected)
+
+   Alice --- Bob --- Charlie
+    |         |         |
+    |         |         |
+   David      Eve      Frank --- Gina
+
+GRAPH (directed)
+
+    Alice --> Bob --> Charlie
+      ↑         ↑         |
+      ↓         |         ↓
+    David      Eve      Frank --> Gina
