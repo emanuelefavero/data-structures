@@ -1,61 +1,57 @@
 // Graph
 // Object Oriented Graph Implementation (Adjacency List Implementation, Connected Graph, Directed Graph)
 
-// NOTE: A vertex is a node in a Graph. An edge is a connection between two vertices
+// NOTE: A vertex is a node in a Graph. An edge is a connection between two vertices (a link). For example an edge can be a friend in a Social Network
 
 // O(1) insert, O(1) remove, O(V + E) search, O(V + E) space
 // V = number of vertices, E = number of edges
 class Graph {
   constructor(value) {
     this.value = value
-    this.adjacentVertices = []
+    this.edges = []
   }
 
-  addAdjacentVertex(vertex) {
-    this.adjacentVertices.push(vertex)
+  addEdge(vertex) {
+    this.edges.push(vertex)
   }
 
   // * Depth-First Search Traverse
-  depthFirstSearch(vertex, visitedVertices = {}) {
+  DFS(vertex, visitedVertices = {}) {
     // Mark vertex as visited by adding it to the hash table
     visitedVertices[vertex.value] = true
 
     // Print the vertex
     console.log(vertex.value)
 
-    // Loop through the adjacent vertices
-    for (let adjacentVertex of vertex.adjacentVertices) {
-      // If the adjacent vertex has not been visited
-      if (!visitedVertices[adjacentVertex.value]) {
-        // Recursively call depthFirstSearch on the adjacent vertex
-        this.depthFirstSearch(adjacentVertex, visitedVertices)
+    // Loop through the edges (adjacent vertices)
+    for (let edge of vertex.edges) {
+      // If the edge (adjacent vertex) has not been visited
+      if (!visitedVertices[edge.value]) {
+        // Recursively call depthFirstSearch on the edges (adjacent vertex)
+        this.DFS(edge, visitedVertices)
       }
     }
   }
 
   // * Depth-First Search (Search for a vertex)
-  depthFirstSearchVertex(vertex, searchValue, visitedVertices = {}) {
+  searchVertex(vertex, searchValue, visitedVertices = {}) {
     // Return the og vertex if happens to be the value we are searching for
     if (vertex.value === searchValue) return vertex
 
     // Mark vertex as visited by adding it to the hash table
     visitedVertices[vertex.value] = true
 
-    // Loop through the adjacent vertices
-    for (let adjacentVertex of vertex.adjacentVertices) {
-      // If the adjacent vertex has not been visited
-      if (!visitedVertices[adjacentVertex.value]) {
-        // If the adjacent vertex is the value we are searching for
-        if (adjacentVertex.value === searchValue) return adjacentVertex
+    // Loop through the edges
+    for (let edge of vertex.edges) {
+      // If the edge has not been visited
+      if (!visitedVertices[edge.value]) {
+        // If the edge is the value we are searching for
+        if (edge.value === searchValue) return edge
 
-        // Recursively call depthFirstSearchVertex on the adjacent vertex
-        let foundVertex = this.depthFirstSearchVertex(
-          adjacentVertex,
-          searchValue,
-          visitedVertices
-        )
+        // Recursively call searchVertex on the edge
+        let foundVertex = this.searchVertex(edge, searchValue, visitedVertices)
 
-        // If the adjacent vertex is the value we are searching for, return it
+        // If the edge is the value we are searching for, return it
         if (foundVertex) return foundVertex
       }
     }
@@ -65,7 +61,7 @@ class Graph {
   }
 
   // * Breadth-First Search Traverse
-  breadthFirstSearch(vertex) {
+  BFS(vertex) {
     // Create a queue and add the vertex to it
     let queue = [vertex]
 
@@ -81,15 +77,15 @@ class Graph {
       // Print the vertex
       console.log(removedVertex.value)
 
-      // Loop through the adjacent vertices of the removed vertex
-      for (let adjacentVertex of removedVertex.adjacentVertices) {
-        // If the adjacent vertex has not been visited
-        if (!visitedVertices[adjacentVertex.value]) {
-          // Mark the adjacent vertex as visited
-          visitedVertices[adjacentVertex.value] = true
+      // Loop through the edges of the removed vertex
+      for (let edge of removedVertex.edges) {
+        // If the edge has not been visited
+        if (!visitedVertices[edge.value]) {
+          // Mark the edge as visited
+          visitedVertices[edge.value] = true
 
-          // Add the adjacent vertex to the queue
-          queue.push(adjacentVertex)
+          // Add the edge to the queue
+          queue.push(edge)
         }
       }
     }
@@ -103,24 +99,24 @@ let bob = new Graph('Bob')
 let candy = new Graph('Candy')
 let derek = new Graph('Derek')
 
-alice.addAdjacentVertex(bob)
-alice.addAdjacentVertex(candy)
-bob.addAdjacentVertex(derek)
+alice.addEdge(bob)
+alice.addEdge(candy)
+bob.addEdge(derek)
 
 console.log(alice)
-// Graph { value: 'Alice', adjacentVertices: [ Graph { value: 'Bob', adjacentVertices: [Graph] }, Graph { value: 'Candy', adjacentVertices: [] } ] }
+// Graph { value: 'Alice', edges: [ Graph { value: 'Bob', edges: [Graph] }, Graph { value: 'Candy', edges: [] } ] }
 
-alice.depthFirstSearch(alice)
+alice.DFS(alice)
 // Alice
 // Bob
 // Derek
 // Candy
 
-console.log(alice.depthFirstSearchVertex(alice, 'Bob'))
-// Graph { value: 'Bob', adjacentVertices: [ Graph { value: 'Derek', adjacentVertices: [] } ] }
-console.log(derek.depthFirstSearchVertex(alice, 'Mark')) // null
+console.log(alice.searchVertex(alice, 'Bob'))
+// Graph { value: 'Bob', edges: [ Graph { value: 'Derek', edges: [] } ] }
+console.log(derek.searchVertex(alice, 'Mark')) // null
 
-alice.breadthFirstSearch(alice)
+alice.BFS(alice)
 // Alice
 // Bob
 // Candy
