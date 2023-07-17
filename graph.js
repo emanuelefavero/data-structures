@@ -3,45 +3,42 @@
 
 // O(1) insert, O(1) remove, O(V + E) search, O(V + E) space
 // V = number of vertices, E = number of edges
+
 class Graph {
   constructor(value) {
     this.value = value
-    this.adjacentVertices = []
+    this.edges = []
   }
 
-  addAdjacentVertex(vertex) {
-    this.adjacentVertices.push(vertex)
+  addEdge(vertex) {
+    this.edges.push(vertex)
   }
 
   // * Depth-First Search Traverse
-  depthFirstSearch(vertex, visitedVertices = {}) {
+  DFS(vertex, visitedVertices = {}) {
     visitedVertices[vertex.value] = true
 
     // DO SOMETHING WITH THE VERTEX
     console.log(vertex.value)
 
-    for (let adjacentVertex of vertex.adjacentVertices) {
-      if (!visitedVertices[adjacentVertex.value]) {
-        this.depthFirstSearch(adjacentVertex, visitedVertices)
+    for (let edge of vertex.edges) {
+      if (!visitedVertices[edge.value]) {
+        this.DFS(edge, visitedVertices)
       }
     }
   }
 
   // * Depth-First Search (Search for a vertex)
-  depthFirstSearchVertex(vertex, searchValue, visitedVertices = {}) {
+  searchVertex(vertex, searchValue, visitedVertices = {}) {
     if (vertex.value === searchValue) return vertex
 
     visitedVertices[vertex.value] = true
 
-    for (let adjacentVertex of vertex.adjacentVertices) {
-      if (!visitedVertices[adjacentVertex.value]) {
-        if (adjacentVertex.value === searchValue) return adjacentVertex
+    for (let edge of vertex.edges) {
+      if (!visitedVertices[edge.value]) {
+        if (edge.value === searchValue) return edge
 
-        let foundVertex = this.depthFirstSearchVertex(
-          adjacentVertex,
-          searchValue,
-          visitedVertices
-        )
+        let foundVertex = this.searchVertex(edge, searchValue, visitedVertices)
 
         if (foundVertex) return foundVertex
       }
@@ -51,7 +48,7 @@ class Graph {
   }
 
   // * Breadth-First Search Traverse
-  breadthFirstSearch(vertex) {
+  BFS(vertex) {
     let queue = [vertex]
 
     let visitedVertices = {}
@@ -63,11 +60,11 @@ class Graph {
       // DO SOMETHING WITH THE VERTEX
       console.log(removedVertex.value)
 
-      for (let adjacentVertex of removedVertex.adjacentVertices) {
-        if (!visitedVertices[adjacentVertex.value]) {
-          visitedVertices[adjacentVertex.value] = true
+      for (let edge of removedVertex.edges) {
+        if (!visitedVertices[edge.value]) {
+          visitedVertices[edge.value] = true
 
-          queue.push(adjacentVertex)
+          queue.push(edge)
         }
       }
     }
@@ -81,24 +78,24 @@ let bob = new Graph('Bob')
 let candy = new Graph('Candy')
 let derek = new Graph('Derek')
 
-alice.addAdjacentVertex(bob)
-alice.addAdjacentVertex(candy)
-bob.addAdjacentVertex(derek)
+alice.addEdge(bob)
+alice.addEdge(candy)
+bob.addEdge(derek)
 
 console.log(alice)
 // Graph { value: 'Alice', adjacentVertices: [ Graph { value: 'Bob', adjacentVertices: [Graph] }, Graph { value: 'Candy', adjacentVertices: [] } ] }
 
-alice.depthFirstSearch(alice)
+alice.DFS(alice)
 // Alice
 // Bob
 // Derek
 // Candy
 
-console.log(alice.depthFirstSearchVertex(alice, 'Bob'))
+console.log(alice.searchVertex(alice, 'Bob'))
 // Graph { value: 'Bob', adjacentVertices: [ Graph { value: 'Derek', adjacentVertices: [] } ] }
-console.log(derek.depthFirstSearchVertex(alice, 'Mark')) // null
+console.log(derek.searchVertex(alice, 'Mark')) // null
 
-alice.breadthFirstSearch(alice)
+alice.BFS(alice)
 // Alice
 // Bob
 // Candy
