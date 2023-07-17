@@ -13,6 +13,7 @@ This repository contains a collection of data structures
 - [Binary Tree Traversal](./markdown/BINARY-TREE-TRAVERSAL.md)
 - [Heap](./markdown/HEAP.md)
 - [Trie](./markdown/TRIE.md)
+- [Graph](./markdown/GRAPH.md)
 
 > See the [data-structures.txt](./data-structures.txt) file for an ascii representation of the data structures
 
