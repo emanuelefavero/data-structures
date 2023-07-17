@@ -1,5 +1,8 @@
 // Graph
 // Object Oriented Graph Implementation (Adjacency List Implementation, Connected Graph, Directed Graph)
+// The time complexity for adding/removing a vertex or an edge (adjacentVertex) is O(1). Searching in a Graph takes O(V + E) time where V is the number of vertices and E is the number of edges. The space complexity for a Graph is O(V + E) where V is the number of vertices and E is the number of edges.
+
+// NOTE: A vertex is a node in a Graph. An edge is a connection between two vertices
 class Graph {
   constructor(value) {
     this.value = value
