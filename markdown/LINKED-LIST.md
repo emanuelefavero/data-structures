@@ -105,3 +105,15 @@ A doubly linked list is a linked list where each node has a pointer to the previ
 
 - [Linked List Wiki](https://en.wikipedia.org/wiki/Linked_list)
 - [Doubly Linked List Wiki](https://en.wikipedia.org/wiki/Doubly_linked_list)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#linked-list)
+
+[**← Go Back**](../README.md)
+
+&nbsp;

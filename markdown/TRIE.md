@@ -111,3 +111,15 @@ The time complexity of the Trie operations are as follows:
 ## References
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Trie)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#trie)
+
+[**← Go Back**](../README.md)
+
+&nbsp;

@@ -165,5 +165,14 @@ breadthFirst(node)
 - [Binary Tree](https://en.wikipedia.org/wiki/Binary_tree#:~:text=A%20binary%20tree%20is%20a%20rooted%20tree%20that%20is%20also,to%20it%20a%20level%20below.)
 - [Singleton Pattern](https://en.wikipedia.org/wiki/Singleton_pattern)
 
-| **[Go to top ⬆](#binary-tree-traversal)** |
-| ----------------------------------------- |
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#binary-tree-traversal)
+
+[**← Go Back**](../README.md)
+
+&nbsp;

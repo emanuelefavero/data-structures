@@ -47,3 +47,15 @@ define Stack class
 ### Stack resources
 
 - [Stack](<https://en.wikipedia.org/wiki/Stack_(abstract_data_type)>)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#stack)
+
+[**← Go Back**](../README.md)
+
+&nbsp;

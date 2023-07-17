@@ -45,3 +45,15 @@ define Queue class
 ### Queue resources
 
 - [Queue](<https://en.wikipedia.org/wiki/Queue_(abstract_data_type)>)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#queue)
+
+[**← Go Back**](../README.md)
+
+&nbsp;

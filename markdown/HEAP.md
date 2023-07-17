@@ -105,3 +105,15 @@ define Heap class
 - [Heap Wiki](https://en.wikipedia.org/wiki/Heap_%2528data_structure%2529?useskin%253Dvector)
 - [Priority Queue Wiki](https://en.wikipedia.org/wiki/Priority_queue?useskin%253Dvector)
 - [Binary Heap](https://en.wikipedia.org/wiki/Binary_heap?useskin%253Dvector)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#heap)
+
+[**← Go Back**](../README.md)
+
+&nbsp;

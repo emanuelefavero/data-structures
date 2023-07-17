@@ -144,3 +144,15 @@ Hash Tables are commonly used in scenarios where fast key-value lookups are requ
 ## References
 
 - [Hash Table Wiki](https://en.wikipedia.org/wiki/Hash_table?useskin=vector)
+
+&nbsp;
+
+---
+
+&nbsp;
+
+[**Go To Top &nbsp; ⬆️**](#hash-table)
+
+[**← Go Back**](../README.md)
+
+&nbsp;
