@@ -4,6 +4,14 @@ A graph is a data structure consisting of a collection of vertices (nodes) conne
 
 > Graphs can be used to model various real-world scenarios, such as social networks, computer networks, transportation systems, and more
 
+_Undirected Graph:_
+
+![screenshot](../images/graph-undirected.webp 'screenshot')
+
+_Directed Graph:_
+
+![screenshot](../images/graph-directed.webp 'screenshot')
+
 ## Graph Terminology
 
 - **Vertex**: A node in a graph
