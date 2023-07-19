@@ -1,3 +1,14 @@
+// The Dijkstra's Shortest Path Algorithm is used to find the shortest path between two nodes in a graph.
+// It is an algorithm that is used to solve the single-source shortest path problem.
+// The algorithm works by keeping track of the currently known shortest distance from each node to the starting node.
+// As it moves from node to node, it keeps track of this information in a table.
+// The algorithm is complete when it has reached the destination node.
+
+// TIP: The Dijkstra's Shortest Path Algorithm uses a weighted graph.
+// TIP: The Dijkstra's Shortest Path Algorithm is a greedy algorithm.
+// @see https://en.wikipedia.org/wiki/Greedy_algorithm
+
+// O(n^2) time | O(n) space
 class City {
   constructor(name) {
     this.name = name
