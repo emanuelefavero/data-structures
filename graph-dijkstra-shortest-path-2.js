@@ -16,7 +16,7 @@ function dijkstra(startCity, endCity, graph = {}) {
   function getMinCostCity(unvisitedCities, dist) {
     let minCost = Infinity
     let minCity = null
-    for (const city of unvisitedCities) {
+    for (let city of unvisitedCities) {
       if (dist[city.name] < minCost) {
         minCost = dist[city.name]
         minCity = city
@@ -25,27 +25,27 @@ function dijkstra(startCity, endCity, graph = {}) {
     return minCity
   }
 
-  const startNode = graph[startCity]
-  const endNode = graph[endCity]
+  let startNode = graph[startCity]
+  let endNode = graph[endCity]
 
-  const dist = {}
-  const prev = {}
-  const unvisitedCities = new Set()
+  let dist = {}
+  let prev = {}
+  let unvisitedCities = new Set()
 
   // Initialize distances and previous city pointers
-  for (const city in graph) {
+  for (let city in graph) {
     dist[city] = city === startCity ? 0 : Infinity
     prev[city] = null
     unvisitedCities.add(graph[city])
   }
 
   while (unvisitedCities.size > 0) {
-    const currentCity = getMinCostCity(unvisitedCities, dist)
+    let currentCity = getMinCostCity(unvisitedCities, dist)
 
     unvisitedCities.delete(currentCity)
 
-    for (const [neighbour, cost] of currentCity.neighbours) {
-      const alt = dist[currentCity.name] + cost
+    for (let [neighbour, cost] of currentCity.neighbours) {
+      let alt = dist[currentCity.name] + cost
       if (alt < dist[neighbour.name]) {
         dist[neighbour.name] = alt
         prev[neighbour.name] = currentCity.name
@@ -54,7 +54,7 @@ function dijkstra(startCity, endCity, graph = {}) {
   }
 
   // Reconstruct the path from startCity to endCity
-  const path = []
+  let path = []
   let current = endCity
   while (current !== null) {
     path.unshift(current)
@@ -66,7 +66,7 @@ function dijkstra(startCity, endCity, graph = {}) {
 
 // -----------------------
 
-const graph = {}
+let graph = {}
 
 // Helper function to add an edge between two cities with a given cost
 function addEdge(fromCity, toCity, cost) {
@@ -85,6 +85,6 @@ addEdge('Chicago', 'El Paso', 80)
 addEdge('Denver', 'Chicago', 40)
 addEdge('Denver', 'El Paso', 140)
 
-const startCity = 'Atlanta'
-const endCity = 'El Paso'
+let startCity = 'Atlanta'
+let endCity = 'El Paso'
 console.log(dijkstra(startCity, endCity, graph))
