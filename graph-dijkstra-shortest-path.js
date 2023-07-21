@@ -103,6 +103,7 @@ let chicago = new City('Chicago')
 let denver = new City('Denver')
 let elPaso = new City('El Paso')
 
+// SET ROUTES
 atlanta.addRoute(boston, 100)
 atlanta.addRoute(denver, 160)
 boston.addRoute(chicago, 120)
@@ -111,7 +112,6 @@ chicago.addRoute(elPaso, 80)
 denver.addRoute(chicago, 40)
 denver.addRoute(elPaso, 140)
 
+// BEWARE: You can only get the shortest path if the starting city has a route to the final destination. To add a new route: atlanta.addRoute(elPaso, 140)
 console.log(dijkstraShortestPath(atlanta, elPaso))
 // [ 'Atlanta', 'Denver', 'Chicago', 'El Paso' ]
-
-// console.log(dijkstraShortestPath(elPaso, atlanta))
