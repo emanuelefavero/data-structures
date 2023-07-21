@@ -12,66 +12,62 @@
 class City {
   constructor(name) {
     this.name = name
-    this.routes = {}
+    this.routes = new Map()
   }
 
   addRoute(city, price) {
-    this.routes[city] = price
+    this.routes.set(city, price)
   }
 }
 
 // * Dijkstra's Shortest Path Algorithm
 function dijkstraShortestPath(startingCity, finalDestination) {
-  let cheapestPricesTable = {}
-  let cheapestPreviousStopoverCityTable = {}
+  let cheapestPricesTable = new Map()
+  let cheapestPreviousStopoverCityTable = new Map()
 
   // Keep track of known cities we haven't visited yet
   let unvisitedCities = []
 
   // Keep track of cities we have visited using a hash table
-  let visitedCities = {}
+  let visitedCities = new Set()
 
   // Initialize the cheapest prices table with the starting city (the price will be zero since we are already there)
-  cheapestPricesTable[startingCity.name] = 0
+  cheapestPricesTable.set(startingCity, 0)
 
   // Initialize the current city to the starting city
   let currentCity = startingCity
-
   // While there is a current city
   while (currentCity) {
     // Mark the current city as visited
-    visitedCities[currentCity.name] = true
+    visitedCities.add(currentCity)
 
     // Delete the current city from the unvisited cities array
     unvisitedCities = unvisitedCities.filter((city) => city !== currentCity)
 
     // Iterate over each current city's adjacent cities
-    for (let adjacentCity in currentCity.routes) {
-      // Get the price to get to the adjacent city from the current city
-      let price = currentCity.routes[adjacentCity]
+    for (let [adjacentCity, price] of currentCity.routes) {
       // If we have discovered a new city, we add it to the unvisited cities array
-      if (!visitedCities[adjacentCity.name]) {
+      if (!visitedCities.has(adjacentCity)) {
         unvisitedCities.push(adjacentCity)
       }
 
       // Calculate the price to get to the adjacent city through the current city
-      let priceThroughCurrentCity =
-        cheapestPricesTable[currentCity.name] + price
+      let priceThroughCurrentCity = cheapestPricesTable.get(currentCity) + price
 
       // If the price from the starting city to the adjacent city is the cheapest so far...
       if (
-        !cheapestPricesTable[adjacentCity.name] ||
-        priceThroughCurrentCity < cheapestPricesTable[adjacentCity.name]
+        !cheapestPricesTable.has(adjacentCity) ||
+        priceThroughCurrentCity < cheapestPricesTable.get(adjacentCity)
       ) {
         // ...update the two tables
-        cheapestPricesTable[adjacentCity.name] = priceThroughCurrentCity
-        cheapestPreviousStopoverCityTable[adjacentCity.name] = currentCity.name
+        cheapestPricesTable.set(adjacentCity, priceThroughCurrentCity)
+        cheapestPreviousStopoverCityTable.set(adjacentCity, currentCity)
       }
     }
 
-    // ! Visit the next unvisited city with the cheapest price
+    // Visit the next unvisited city with the cheapest price
     currentCity = unvisitedCities.reduce((minCity, city) => {
-      return cheapestPricesTable[city.name] < cheapestPricesTable[minCity.name]
+      return cheapestPricesTable.get(city) < cheapestPricesTable.get(minCity)
         ? city
         : minCity
     }, unvisitedCities[0])
@@ -81,15 +77,15 @@ function dijkstraShortestPath(startingCity, finalDestination) {
   let shortestPath = []
 
   // Start with the final destination
-  let currentCityName = finalDestination.name
+  currentCity = finalDestination
 
   // While we haven't reached the starting city...
-  while (currentCityName !== startingCity.name) {
+  while (currentCity !== startingCity) {
     // ...add the current city to the shortest path array
-    shortestPath.push(currentCityName)
+    shortestPath.push(currentCity.name)
 
     // ...and update the current city to the previous stopover city
-    currentCityName = cheapestPreviousStopoverCityTable[currentCityName]
+    currentCity = cheapestPreviousStopoverCityTable.get(currentCity)
   }
 
   // Finally, add the starting city to the shortest path array
@@ -116,3 +112,6 @@ denver.addRoute(chicago, 40)
 denver.addRoute(elPaso, 140)
 
 console.log(dijkstraShortestPath(atlanta, elPaso))
+// [ 'Atlanta', 'Denver', 'Chicago', 'El Paso' ]
+
+// console.log(dijkstraShortestPath(elPaso, atlanta))
