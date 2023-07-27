@@ -126,19 +126,29 @@ linkedList.insert('hello')
 linkedList.insert('how')
 
 console.log(linkedList)
+// LinkedList { head: Node { value: 'hello', next: Node { value: 'how', next: null } } }
+
 console.log(linkedList.readAtIndex(1))
+// Node { value: 'how', next: null }
 console.log(linkedList.readHead())
+// Node { value: 'hello', next: Node { value: 'how', next: null } }
 console.log(linkedList.find('how'))
+// Node { value: 'how', next: null }
 console.log(linkedList.toString())
+// hello how
 
 linkedList.removeHead()
 console.log(linkedList)
+// LinkedList { head: Node { value: 'how', next: null } }
 
 linkedList.insertNewHead('hi')
 console.log(linkedList)
+// LinkedList { head: Node { value: 'hi', next: Node { value: 'how', next: null } } }
 
 linkedList.removeLast()
 console.log(linkedList)
+// LinkedList { head: Node { value: 'hi', next: null } }
 
 linkedList.update(0, 'where')
 console.log(linkedList)
+// LinkedList { head: Node { value: 'where', next: null } }
