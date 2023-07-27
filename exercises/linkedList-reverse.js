@@ -32,7 +32,7 @@ class LinkedList {
     }
   }
 
-  // REVERSE LINKED LIST
+  // * REVERSE LINKED LIST
   reverse() {
     if (!this.head) return null
 
@@ -41,10 +41,10 @@ class LinkedList {
     let next = null
 
     while (current) {
-      next = current.next
-      current.next = previous
-      previous = current
-      current = next
+      next = current.next // Save next node
+      current.next = previous // * Switch direction of pointer
+      previous = current // Move previous forward
+      current = next // Move current forward
     }
 
     this.head = previous
