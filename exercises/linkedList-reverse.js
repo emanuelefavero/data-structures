@@ -47,6 +47,7 @@ class LinkedList {
       current = next // Move current forward
     }
 
+    // Once the loop completes, previous will be pointing to the last node of the original list, which will become the new head of the reversed list
     this.head = previous
   }
 }
