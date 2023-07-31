@@ -30,7 +30,7 @@ class DoublyLinkedList {
     return this
   }
 
-  // * POP
+  // * POP - remove last node in the linked list
   pop() {
     if (this.length === 0) return
     if (this.length === 1) {
