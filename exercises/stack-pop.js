@@ -26,6 +26,7 @@ class Stack {
     return this
   }
 
+  // * POP
   pop() {
     if (this.length === 0) return undefined
 
