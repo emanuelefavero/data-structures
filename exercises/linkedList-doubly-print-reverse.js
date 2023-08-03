@@ -37,6 +37,7 @@ class DoublyLinkedList {
     }
   }
 
+  // * REVERSE PRINT
   reversePrint() {
     if (!this.head) return null
 

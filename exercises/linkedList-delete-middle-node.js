@@ -32,7 +32,7 @@ class LinkedList {
     }
   }
 
-  // DELETE MIDDLE NODE
+  // * DELETE MIDDLE NODE
   deleteMiddleNode(value) {
     if (!this.head) return null
 

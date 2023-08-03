@@ -35,6 +35,7 @@ class LinkedList {
     }
   }
 
+  // * GET LAST ELEMENT
   getLastElement() {
     return this.tail.value
   }

@@ -112,6 +112,7 @@ class LinkedList {
     return temp
   }
 
+  // * SET
   set(index, value) {
     // TIP: Since the set method is very similar to the get method, and the get method returns the node at the provided index, we can just call the get method from here and assign its returned node to temp
     let temp = this.get(index)

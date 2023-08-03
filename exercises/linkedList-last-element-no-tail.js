@@ -32,6 +32,7 @@ class LinkedList {
     }
   }
 
+  // * GET LAST ELEMENT
   getLastElement() {
     if (!this.head) return null
 

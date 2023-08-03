@@ -47,6 +47,7 @@ class LinkedList {
     this.length = 0
   }
 
+  // * PUSH
   push(value) {
     let newNode = new Node(value)
 

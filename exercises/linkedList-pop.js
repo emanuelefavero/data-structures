@@ -60,6 +60,7 @@ class LinkedList {
     return this
   }
 
+  // * POP
   pop() {
     if (!this.head) return undefined
 

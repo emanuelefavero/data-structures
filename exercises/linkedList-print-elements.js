@@ -32,6 +32,7 @@ class LinkedList {
     }
   }
 
+  // * PRINT
   print() {
     if (!this.head) return null
 

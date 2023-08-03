@@ -16,6 +16,7 @@ class Stack {
   }
 }
 
+// * LINTER
 function linter(line) {
   const stack = new Stack()
   const openingBraces = ['(', '[', '{']

@@ -16,6 +16,7 @@ class Stack {
   }
 }
 
+// * REVERSE STRING
 function reverseString(string) {
   const stack = new Stack()
   let reversedString = ''

@@ -16,6 +16,7 @@ class Queue {
   }
 }
 
+// * PRINTER
 class Printer {
   constructor() {
     this.queue = new Queue()

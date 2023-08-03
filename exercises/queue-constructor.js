@@ -6,6 +6,7 @@ class Node {
 }
 
 class Queue {
+  // * CONSTRUCTOR
   constructor(value) {
     let newNode = new Node(value)
 

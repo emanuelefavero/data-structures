@@ -91,6 +91,7 @@ class LinkedList {
     return this
   }
 
+  // * SHIFT
   shift() {
     if (!this.head) return undefined
 

@@ -78,7 +78,7 @@ class LinkedList {
     return temp
   }
 
-  // Add new node to start of the linked list
+  // * UNSHIFT - Add new node to start of the linked list
   unshift(value) {
     let newNode = new Node(value)
 
