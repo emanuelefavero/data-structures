@@ -60,12 +60,6 @@ class LinkedList {
     return this
   }
 
-  /// WRITE POP METHOD HERE ///
-  //                         //
-  //                         //
-  //                         //
-  //                         //
-  /////////////////////////////
   pop() {
     if (!this.head) return undefined
 

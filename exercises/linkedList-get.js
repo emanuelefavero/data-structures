@@ -103,12 +103,6 @@ class LinkedList {
     return temp
   }
 
-  /// WRITE GET METHOD HERE ///
-  //                         //
-  //                         //
-  //                         //
-  //                         //
-  /////////////////////////////
   get(index) {
     if (index < 0 || index >= this.length) return undefined
 

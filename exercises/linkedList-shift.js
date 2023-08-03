@@ -91,12 +91,6 @@ class LinkedList {
     return this
   }
 
-  /// WRITE SHIFT METHOD HERE ///
-  //                           //
-  //                           //
-  //                           //
-  //                           //
-  ///////////////////////////////
   shift() {
     if (!this.head) return undefined
 

@@ -78,13 +78,6 @@ class LinkedList {
     return temp
   }
 
-  /// WRITE UNSHIFT METHOD HERE ///
-  //                             //
-  //                             //
-  //                             //
-  //                             //
-  /////////////////////////////////
-
   // Add new node to start of the linked list
   unshift(value) {
     let newNode = new Node(value)

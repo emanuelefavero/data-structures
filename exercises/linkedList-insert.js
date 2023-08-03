@@ -190,18 +190,3 @@ test()
     4
 
 */
-
-/*
-if (index < 0 || index >= this.length) return false
-    if (index === 0) return this.unshift(value)
-    if (index === this.length) return this.push(value)
-
-    let newNode = new Node(value)
-    let temp = this.get(index - 1) // temp is the node before the one we want to insert
-
-    newNode.next = temp.next
-    temp.next = newNode
-
-    this.length++
-    return true
-*/
