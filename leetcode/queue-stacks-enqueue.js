@@ -35,7 +35,7 @@ class MyQueue {
     return this.stack1.peek()
   }
 
-  // * ENQUEUE
+  // * ENQUEUE - add an item to the end of the queue
   // O(n)
   enqueue(value) {
     // move all items from stack1 to stack2
@@ -43,10 +43,11 @@ class MyQueue {
       this.stack2.push(this.stack1.pop())
     }
 
-    // add the new item to stack1
+    // add the new item to the empty stack1
     this.stack1.push(value)
 
-    // move all items back to stack1
+    // move all items back to stack1. At this point the new item is at the bottom of the queue (stack1), which is the start of the array
+    // TIP: @see leetcode/queue-stacks-dequeue
     while (this.stack2.length()) {
       this.stack1.push(this.stack2.pop())
     }
