@@ -40,13 +40,20 @@ class BST {
     }
   }
 
-  // * MINIMUM VALUE
+  // * GET MIN VALUE
   min(currentNode = this.root) {
     while (currentNode.left) {
       currentNode = currentNode.left
     }
 
-    return currentNode
+    return currentNode.value
+  }
+
+  // * GET MIN VALUE WITH RECURSION
+  min2(current = this.root) {
+    if (current.left) return this.min2(current.left)
+
+    return current.value
   }
 }
 
@@ -62,5 +69,5 @@ bst.insert(9)
 bst.insert(4)
 bst.insert(10)
 
-console.log(bst.min())
-// Node { value: 1, left: null, right: null }
+console.log(bst.min()) // 1
+console.log(bst.min2()) // 1
