@@ -44,26 +44,20 @@ class BinarySearchTree {
 
   // * GET MAX VALUE
   max() {
-    if (!this.root) return null
-
     let current = this.root
 
-    while (current) {
-      if (!current.right) {
-        return current.value
-      }
-
+    while (current.right) {
       current = current.right
     }
+
+    return current.value
   }
 
   // * GET MAX VALUE WITH RECURSION
-  max2(node = this.root) {
-    if (!this.root) return null
+  max2(current = this.root) {
+    if (current.right) return this.max(current.right)
 
-    if (node.right) return this.max(node.right)
-
-    return node.value
+    return current.value
   }
 }
 
