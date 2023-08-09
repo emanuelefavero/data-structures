@@ -35,11 +35,4 @@ hashTable.set('black shirt', 18)
 hashTable.set('red shirt', 8)
 
 console.log(hashTable.dataMap)
-/*
-[
-  <3 empty items>,
-  [ [ 'red shirt', 8 ] ],
-  <2 empty items>,
-  [ [ 'black shirt', 18 ] ]
-]
-*/
+// [ <3 empty items>, [ [ 'red shirt', 8 ] ], <2 empty items>, [ [ 'black shirt', 18 ] ] ]
