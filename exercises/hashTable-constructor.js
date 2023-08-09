@@ -1,8 +1,10 @@
 class HashTable {
+  // * CONSTRUCTOR
   constructor(size = 7) {
     this.dataMap = new Array(size)
   }
 
+  // * HASH
   _hash(key) {
     let hash = 0
 
