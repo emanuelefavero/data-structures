@@ -28,6 +28,7 @@ class HashTable {
   }
 
   // * GET
+  // O(1) - Since the collisions will be minimal with a good implementation, the lookup time is constant
   get(key) {
     let index = this._hash(key)
 

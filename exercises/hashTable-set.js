@@ -15,6 +15,7 @@ class HashTable {
   }
 
   // * SET
+  // O(1)
   set(key, value) {
     let index = this._hash(key)
 

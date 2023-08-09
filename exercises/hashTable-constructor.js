@@ -5,6 +5,7 @@ class HashTable {
   }
 
   // * HASH
+  // O(1)
   _hash(key) {
     let hash = 0
 

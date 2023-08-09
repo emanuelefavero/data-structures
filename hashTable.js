@@ -2,6 +2,7 @@
 // You can retrieve the value by using the key
 // Hash Tables have an average search, insert and delete speed of O(1)
 // And a worst case scenario of O(n)
+// TIP: With a good hash table implementation that handles collisions well, the worst case scenario is very unlikely so O(1) is a good estimate
 
 // In javascript you can create hash tables with Objects and Maps
 
