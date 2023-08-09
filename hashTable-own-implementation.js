@@ -8,6 +8,9 @@ class HashTable {
   hash(key) {
     let hashValue = 0
     for (let i = 0; i < key.length; i++) {
+      // charCodeAt() returns the unicode (integer) of the character at the specified index in a string
+      // TIP: By adding the unicode of each character in the key, we get a unique hash value
+      // TIP: Sometimes, the hash value can be the same for different keys. This is called a collision. @see ./hashTable-collisions.js
       hashValue += key.charCodeAt(i)
     }
 
@@ -38,6 +41,10 @@ class HashTable {
 
     return false
   }
+
+  test() {
+    return 'ab'.charCodeAt(0)
+  }
 }
 
 const hashTable = new HashTable()
@@ -53,3 +60,5 @@ hashTable.remove('black shirt')
 console.log(hashTable.get('black shirt')) // undefined
 
 console.log(hashTable.size) // 1
+
+console.log(hashTable.test())
