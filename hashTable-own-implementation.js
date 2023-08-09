@@ -10,7 +10,8 @@ class HashTable {
     for (let i = 0; i < key.length; i++) {
       // charCodeAt() returns the unicode (integer) of the character at the specified index in a string
       // TIP: By adding the unicode of each character in the key, we get a unique hash value
-      // TIP: Sometimes, the hash value can be the same for different keys. This is called a collision. @see ./hashTable-collisions.js
+      // TIP: Sometimes, the hash value can be the same for different keys. This is called a collision
+      // @see hashTable-collisions.js or hashTable-collisions-linear-probing.js
       hashValue += key.charCodeAt(i)
     }
 

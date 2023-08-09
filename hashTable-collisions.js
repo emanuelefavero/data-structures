@@ -24,16 +24,17 @@ class HashTable {
 
     if (this.table[index]) {
       for (let i = 0; i < this.table[index].length; i++) {
-        // Find the key/value pair in the chain
+        // If the key already exists, replace the value
         if (this.table[index][i][0] === key) {
           this.table[index][i][1] = value
           return
         }
       }
 
-      // Not found, push a new ley/value pair
+      // Not found, push a new key/value pair
       this.table[index].push([key, value])
     } else {
+      // If nothing exists at the index, create a new array and add the key/value pair
       this.table[index] = []
       this.table[index].push([key, value])
     }
@@ -46,12 +47,14 @@ class HashTable {
 
     if (this.table[index]) {
       for (let i = 0; i < this.table.length; i++) {
+        // If the key exists, return the value
         if (this.table[index][i][0] === key) {
           return this.table[index][i][1]
         }
       }
     }
 
+    // If the key doesn't exist, return undefined
     return undefined
   }
 
