@@ -4,8 +4,9 @@ class HashTable {
     this.table = {}
   }
 
-  hash(key) {
+  _hash(key) {
     let hashValue = 0
+
     for (let i = 0; i < key.length; i++) {
       // charCodeAt() returns the unicode (integer) of the character at the specified index in a string
       // TIP: By adding the unicode of each character in the key, we get a unique hash value
@@ -14,26 +15,25 @@ class HashTable {
       hashValue += key.charCodeAt(i)
     }
 
-    return hashValue.toString()
+    return hashValue
   }
 
   set(key, value) {
-    const index = this.hash(key)
+    const index = this._hash(key)
+
     this.table[index] = value
   }
 
   get(key) {
-    const index = this.hash(key)
+    const index = this._hash(key)
 
     return this.table[index]
   }
 
   remove(key) {
-    const index = this.hash(key)
+    const index = this._hash(key)
 
-    if (this.table.hasOwnProperty(index)) {
-      delete this.table[index]
-    }
+    delete this.table[index]
   }
 }
 
