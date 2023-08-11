@@ -22,6 +22,7 @@ class Graph {
     return false
   }
 
+  // * REMOVE EDGE - O(E)
   removeEdge(vertex1, vertex2) {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
       this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(

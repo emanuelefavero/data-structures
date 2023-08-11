@@ -3,6 +3,7 @@ class Graph {
     this.adjacencyList = {}
   }
 
+  // * ADD VERTEX - O(1)
   addVertex(vertex) {
     if (!this.adjacencyList[vertex]) {
       this.adjacencyList[vertex] = []

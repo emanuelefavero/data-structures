@@ -37,6 +37,7 @@ class Graph {
     return false
   }
 
+  // * REMOVE VERTEX - O(V + E)
   removeVertex(vertex) {
     if (!this.adjacencyList[vertex]) return undefined
 

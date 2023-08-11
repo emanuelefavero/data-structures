@@ -12,6 +12,7 @@ class Graph {
     this.adjacencyList = {}
   }
 
+  // O(1)
   addVertex(vertex) {
     if (!this.adjacencyList[vertex]) {
       this.adjacencyList[vertex] = []
@@ -21,6 +22,7 @@ class Graph {
     return false
   }
 
+  // O(1)
   addEdge(vertex1, vertex2) {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
       this.adjacencyList[vertex1].push(vertex2)
@@ -31,6 +33,7 @@ class Graph {
     return false
   }
 
+  // O(e)
   removeEdge(vertex1, vertex2) {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
       this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
@@ -46,6 +49,7 @@ class Graph {
     return false
   }
 
+  // O(v + e)
   removeVertex(vertex) {
     if (!this.adjacencyList[vertex]) return undefined
 
@@ -58,7 +62,7 @@ class Graph {
     return this
   }
 
-  // * Depth-First Search Traverse
+  // * Depth-First Search Traverse - O(v + e)
   DFS(vertex, visited = {}) {
     visited[vertex] = true
 
