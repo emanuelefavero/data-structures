@@ -6,6 +6,7 @@ Remove Vertex O(v + e)
 Remove Edge O(e)
 */
 
+// * Undirected Graph (no direction, like Facebook friends)
 class Graph {
   constructor() {
     this.adjacencyList = {}
@@ -56,6 +57,19 @@ class Graph {
     delete this.adjacencyList[vertex]
     return this
   }
+
+  // * Depth-First Search Traverse
+  DFS(vertex, visited = {}) {
+    visited[vertex] = true
+
+    console.log(vertex)
+
+    this.adjacencyList[vertex].forEach((item) => {
+      if (!visited[item]) {
+        this.DFS(item, visited)
+      }
+    })
+  }
 }
 
 let graph = new Graph()
@@ -68,8 +82,11 @@ graph.addEdge('A', 'B')
 graph.addEdge('B', 'C')
 graph.addEdge('A', 'C')
 
-// graph.removeEdge('A', 'B')
 graph.removeVertex('A')
 
 console.log(graph.adjacencyList)
 // { B: [ 'C' ], C: [ 'B' ] }
+
+graph.addVertex('D')
+graph.addEdge('B', 'D')
+graph.DFS('B') // B C D
