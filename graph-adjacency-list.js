@@ -44,6 +44,18 @@ class Graph {
 
     return false
   }
+
+  removeVertex(vertex) {
+    if (!this.adjacencyList[vertex]) return undefined
+
+    while (this.adjacencyList[vertex].length) {
+      let removed = this.adjacencyList[vertex].pop()
+      this.removeEdge(vertex, removed)
+    }
+
+    delete this.adjacencyList[vertex]
+    return this
+  }
 }
 
 let graph = new Graph()
@@ -54,8 +66,10 @@ graph.addVertex('C')
 
 graph.addEdge('A', 'B')
 graph.addEdge('B', 'C')
+graph.addEdge('A', 'C')
 
-graph.removeEdge('A', 'B')
+// graph.removeEdge('A', 'B')
+graph.removeVertex('A')
 
 console.log(graph.adjacencyList)
-// { A: [], B: [ 'C' ], C: [ 'B' ] }
+// { B: [ 'C' ], C: [ 'B' ] }
