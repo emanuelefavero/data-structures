@@ -1,77 +1,45 @@
-// Graph
-
-// O(1) insert, O(1) remove, O(V + E) search, O(V + E) space
-// V = number of vertices, E = number of edges
-
+// * Undirected Graph (no direction, like Facebook friends)
 class Graph {
-  constructor(value) {
-    this.value = value
-    this.edges = []
+  constructor() {
+    this.adjacencyList = {}
   }
 
-  addEdge(vertex) {
-    this.edges.push(vertex)
+  addVertex(vertex) {
+    this.adjacencyList[vertex] = []
+  }
+
+  addEdge(vertex1, vertex2) {
+    this.adjacencyList[vertex1].push(vertex2)
+    this.adjacencyList[vertex2].push(vertex1)
   }
 
   // * Depth-First Search Traverse
   DFS(vertex, visited = {}) {
-    visited[vertex.value] = true
+    visited[vertex] = true
 
-    // DO SOMETHING WITH THE VERTEX
-    console.log(vertex.value)
+    console.log(vertex)
 
-    for (let edge of vertex.edges) {
-      if (!visited[edge.value]) {
-        this.DFS(edge, visited)
+    this.adjacencyList[vertex].forEach((item) => {
+      if (!visited[item]) {
+        this.DFS(item, visited)
       }
-    }
+    })
   }
 }
 
-/*
+// -----------------------------
 
+let graph = new Graph()
 
+graph.addVertex('A')
+graph.addVertex('B')
+graph.addVertex('C')
 
+graph.addEdge('A', 'B')
+graph.addEdge('B', 'C')
+graph.addEdge('A', 'C')
 
+console.log(graph.adjacencyList)
+// { A: [ 'B', 'C' ], B: [ 'A', 'C' ], C: [ 'B', 'A' ] }
 
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-
-let alice = new Graph('Alice')
-let bob = new Graph('Bob')
-let candy = new Graph('Candy')
-let derek = new Graph('Derek')
-
-alice.addEdge(bob)
-alice.addEdge(candy)
-bob.addEdge(derek)
-
-console.log(alice)
-// Graph { value: 'Alice', adjacentVertices: [ Graph { value: 'Bob', adjacentVertices: [Graph] }, Graph { value: 'Candy', adjacentVertices: [] } ] }
-
-alice.DFS(alice)
-// Alice
-// Bob
-// Derek
-// Candy
-
-console.log(alice.searchVertex(alice, 'Bob'))
-// Graph { value: 'Bob', adjacentVertices: [ Graph { value: 'Derek', adjacentVertices: [] } ] }
-console.log(derek.searchVertex(alice, 'Mark')) // null
-
-alice.BFS(alice)
-// Alice
-// Bob
-// Candy
-// Derek
+graph.DFS('A') // A B C
