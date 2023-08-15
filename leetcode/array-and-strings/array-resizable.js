@@ -5,6 +5,7 @@ class ResizableArray {
     this.length = 0
   }
 
+  // O(n)
   _resize(newCapacity) {
     let newArray = new Array(newCapacity)
 
@@ -16,6 +17,7 @@ class ResizableArray {
     this.capacity = newCapacity
   }
 
+  // O(1) most of the time, O(n) when resizing
   push(value) {
     if (this.length === this.capacity) {
       this._resize(this.capacity * 2)
