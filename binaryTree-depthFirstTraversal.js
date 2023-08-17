@@ -14,21 +14,23 @@ class BinaryTree {
 
   insert(value) {
     let newNode = new Node(value)
-    if (this.root === null) {
+
+    if (!this.root) {
       this.root = newNode
       return this
     }
 
     let current = this.root
-    while (true) {
+
+    while (current) {
       if (value < current.value) {
-        if (current.left === null) {
+        if (!current.left) {
           current.left = newNode
           return this
         }
         current = current.left
       } else {
-        if (current.right === null) {
+        if (!current.right) {
           current.right = newNode
           return this
         }
