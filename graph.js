@@ -26,7 +26,7 @@ class Graph {
   addEdge(vertex1, vertex2) {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
       this.adjacencyList[vertex1].push(vertex2)
-      this.adjacencyList[vertex2].push(vertex1)
+      this.adjacencyList[vertex2].push(vertex1) // if directed, remove this line
       return true
     }
 
@@ -40,9 +40,11 @@ class Graph {
         (item) => item !== vertex2
       )
 
+      // if directed, remove this line:
       this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
         (item) => item !== vertex1
       )
+
       return true
     }
 
@@ -53,9 +55,8 @@ class Graph {
   removeVertex(vertex) {
     if (!this.adjacencyList[vertex]) return undefined
 
-    while (this.adjacencyList[vertex].length) {
-      let removed = this.adjacencyList[vertex].pop()
-      this.removeEdge(vertex, removed)
+    for (const adjacentVertex of this.adjacencyList[vertex]) {
+      this.removeEdge(vertex, adjacentVertex)
     }
 
     delete this.adjacencyList[vertex]
