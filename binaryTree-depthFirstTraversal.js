@@ -94,6 +94,7 @@ class BinaryTree {
   }
 
   // TIP: To print the values in the order they where added, you would need to keep track of the insertion order explicitly
+  // @see ./binaryTree-track-insertion-order
 }
 
 let tree = new BinaryTree()
