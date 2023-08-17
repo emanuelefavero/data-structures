@@ -1,7 +1,7 @@
 // Binary Tree with depth first traversal methods
 class Node {
-  constructor(data) {
-    this.data = data
+  constructor(value) {
+    this.value = value
     this.left = null
     this.right = null
   }
@@ -12,8 +12,8 @@ class BinaryTree {
     this.root = null
   }
 
-  insert(data) {
-    let newNode = new Node(data)
+  insert(value) {
+    let newNode = new Node(value)
     if (this.root === null) {
       this.root = newNode
       return this
@@ -21,7 +21,7 @@ class BinaryTree {
 
     let current = this.root
     while (true) {
-      if (data < current.data) {
+      if (value < current.value) {
         if (current.left === null) {
           current.left = newNode
           return this
@@ -41,7 +41,7 @@ class BinaryTree {
   DPF(node = this.root) {
     if (node) {
       this.DPF(node.left)
-      console.log(node.data)
+      console.log(node.value)
       this.DPF(node.right)
     }
   }
@@ -50,7 +50,7 @@ class BinaryTree {
   // root, left, right
   preOrder(node = this.root, result = []) {
     if (node) {
-      result.push(node.data)
+      result.push(node.value)
       this.preOrder(node.left, result)
       this.preOrder(node.right, result)
     }
@@ -62,7 +62,7 @@ class BinaryTree {
   // NOTE: a binary search tree is sorted in ascending order by definition (check binarySearchTree.js)
   inOrder(node = this.root, result = []) {
     if (node) {
-      result.push(node.data)
+      result.push(node.value)
       this.inOrder(node.left, result)
       this.inOrder(node.right, result)
     }
@@ -75,7 +75,7 @@ class BinaryTree {
   inOrderReverse(node = this.root, result = []) {
     if (node) {
       this.inOrderReverse(node.right, result)
-      result.push(node.data)
+      result.push(node.value)
       this.inOrderReverse(node.left, result)
     }
 
@@ -87,7 +87,7 @@ class BinaryTree {
     if (node) {
       this.postOrder(node.left, result)
       this.postOrder(node.right, result)
-      result.push(node.data)
+      result.push(node.value)
     }
 
     return result
