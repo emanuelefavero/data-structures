@@ -37,68 +37,63 @@ class BinaryTree {
     }
   }
 
+  // * depth first traversal - in order
+  DPF(node = this.root) {
+    if (node) {
+      this.DPF(node.left)
+      console.log(node.data)
+      this.DPF(node.right)
+    }
+  }
+
   // depth first traversal
   // root, left, right
-  preOrder() {
-    let result = []
-    let current = this.root
-
-    function traverse(node) {
+  preOrder(node = this.root, result = []) {
+    if (node) {
       result.push(node.data)
-      if (node.left) traverse(node.left)
-      if (node.right) traverse(node.right)
+      this.preOrder(node.left, result)
+      this.preOrder(node.right, result)
     }
 
-    traverse(current)
     return result
   }
 
   // sorted (ascending order) - left, root, right
   // NOTE: a binary search tree is sorted in ascending order by definition (check binarySearchTree.js)
-  inOrder() {
-    let result = []
-    let current = this.root
-
-    function traverse(node) {
-      if (node.left) traverse(node.left)
+  inOrder(node = this.root, result = []) {
+    if (node) {
       result.push(node.data)
-      if (node.right) traverse(node.right)
+      this.inOrder(node.left, result)
+      this.inOrder(node.right, result)
     }
 
-    traverse(current)
     return result
   }
 
   // sorted (descending order) - right, root, left
   // reverse of inOrder
-  inOrderReverse() {
-    let result = []
-    let current = this.root
-
-    function traverse(node) {
-      if (node.right) traverse(node.right)
+  inOrderReverse(node = this.root, result = []) {
+    if (node) {
+      this.inOrderReverse(node.right, result)
       result.push(node.data)
-      if (node.left) traverse(node.left)
+      this.inOrderReverse(node.left, result)
     }
 
-    traverse(current)
     return result
   }
 
   // left, right, root
-  postOrder() {
-    let result = []
-    let current = this.root
-
-    function traverse(node) {
-      if (node.left) traverse(node.left)
-      if (node.right) traverse(node.right)
+  postOrder(node = this.root, result = []) {
+    if (node) {
+      this.postOrder(node.left, result)
+      this.postOrder(node.right, result)
       result.push(node.data)
     }
 
-    traverse(current)
     return result
   }
+
+  // TIP: To print the values in the order they where added, you would need to keep track of the insertion order explicitly
 }
 
 let tree = new BinaryTree()
