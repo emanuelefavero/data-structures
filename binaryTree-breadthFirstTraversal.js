@@ -1,7 +1,7 @@
 // Binary Tree with breadth first traversal methods
 class Node {
-  constructor(data) {
-    this.data = data
+  constructor(value) {
+    this.value = value
     this.left = null
     this.right = null
   }
@@ -12,8 +12,8 @@ class BinaryTree {
     this.root = null
   }
 
-  insert(data) {
-    let newNode = new Node(data)
+  insert(value) {
+    let newNode = new Node(value)
     if (this.root === null) {
       this.root = newNode
       return this
@@ -21,7 +21,7 @@ class BinaryTree {
 
     let current = this.root
     while (true) {
-      if (data < current.data) {
+      if (value < current.value) {
         if (current.left === null) {
           current.left = newNode
           return this
@@ -47,7 +47,7 @@ class BinaryTree {
     while (queue.length) {
       let current = queue.shift()
 
-      console.log(current.data)
+      console.log(current.value)
 
       if (current.left) queue.push(current.left)
       if (current.right) queue.push(current.right)
@@ -65,7 +65,7 @@ class BinaryTree {
     while (queue.length) {
       let current = queue.shift() // remove first element and return it
 
-      result.push(current.data) // main operation
+      result.push(current.value) // main operation
 
       if (current.left) queue.push(current.left)
       if (current.right) queue.push(current.right)
