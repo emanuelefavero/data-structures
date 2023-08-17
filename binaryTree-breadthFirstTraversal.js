@@ -37,21 +37,41 @@ class BinaryTree {
     }
   }
 
-  // breadth first traversal
-  // left to right
+  // * breadth first traversal
+  // return an array of the nodes in the tree
   levelOrder() {
+    if (!this.root) return
+
     let result = []
-    let queue = []
-    let current = this.root
-    queue.push(current)
+    let queue = [this.root]
 
     while (queue.length) {
-      current = queue.shift() // remove first element and return it
-      result.push(current.data)
+      let current = queue.shift() // remove first element and return it
+
+      result.push(current.data) // main operation
+
       if (current.left) queue.push(current.left)
       if (current.right) queue.push(current.right)
     }
+
     return result
+  }
+
+  // * breadth first traversal
+  // print each level on a new line
+  BFS() {
+    if (!this.root) return
+
+    let queue = [this.root]
+
+    while (queue.length) {
+      let current = queue.shift()
+
+      console.log(current.data)
+
+      if (current.left) queue.push(current.left)
+      if (current.right) queue.push(current.right)
+    }
   }
 }
 
@@ -61,4 +81,6 @@ tree.insert(6)
 tree.insert(15)
 tree.insert(3)
 
-console.log(tree.levelOrder()) // [10, 6, 15, 3]
+console.log(tree.levelOrder())
+
+tree.BFS() // 10, 6, 15, 3
