@@ -64,8 +64,8 @@ class BinaryTree {
   // NOTE: a binary search tree is sorted in ascending order by definition (check binarySearchTree.js)
   inOrder(node = this.root, result = []) {
     if (node) {
-      result.push(node.value)
       this.inOrder(node.left, result)
+      result.push(node.value)
       this.inOrder(node.right, result)
     }
 
