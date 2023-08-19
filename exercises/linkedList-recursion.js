@@ -38,6 +38,14 @@ class LinkedList {
 
     return 1 + this.countNodes(node.next)
   }
+
+  find(value, node = this.head) {
+    if (!node) return false
+
+    if (node.value === value) return true
+
+    return this.find(value, node.next)
+  }
 }
 
 let linkedList = new LinkedList()
@@ -47,3 +55,5 @@ linkedList.add(2)
 linkedList.add(3)
 
 console.log(linkedList.countNodes()) // 3
+console.log(linkedList.find(2)) // true
+console.log(linkedList.find(4)) // false
