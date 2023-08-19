@@ -119,6 +119,29 @@ class LinkedList {
       current = current.next
     }
   }
+
+  remove(value) {
+    if (!this.head) return null
+
+    let current = this.head
+
+    if (current.value === value) {
+      this.head = current.next
+      return current
+    }
+
+    while (current.next) {
+      if (current.next.value === value) {
+        let removed = current.next
+        current.next = current.next.next
+        return removed
+      }
+
+      current = current.next
+    }
+
+    return null
+  }
 }
 
 const linkedList = new LinkedList()
@@ -152,3 +175,9 @@ console.log(linkedList)
 linkedList.update(0, 'where')
 console.log(linkedList)
 // LinkedList { head: Node { value: 'where', next: null } }
+
+linkedList.insert('are')
+linkedList.insert('you')
+linkedList.remove('are')
+console.log(linkedList)
+// LinkedList { head: Node { value: 'where', next: Node { value: 'you', next: null } } }
