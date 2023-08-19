@@ -61,6 +61,26 @@ class LinkedList {
       current = current.next
     }
   }
+
+  // * Runner Technique approach (O(n^2) time, O(1) space)
+  removeDuplicates2() {
+    if (!this.head) return null
+
+    let current = this.head
+
+    while (current) {
+      let runner = current
+
+      while (runner.next) {
+        if (runner.next.value === current.value) {
+          runner.next = runner.next.next // Skip the duplicate node
+        } else {
+          runner = runner.next
+        }
+      }
+      current = current.next
+    }
+  }
 }
 
 let linkedList = new LinkedList()
