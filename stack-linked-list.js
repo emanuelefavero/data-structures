@@ -1,3 +1,5 @@
+// TIP: A stack can be implemented using a linked list or an array. A linked list is a good use case for a stack because we only add and remove from the beginning of the list, which is O(1)
+
 class Node {
   constructor(value) {
     this.value = value
@@ -10,6 +12,7 @@ class Stack {
     this.top = null
   }
 
+  // * PUSH
   push(value) {
     let newNode = new Node(value)
 
@@ -24,6 +27,7 @@ class Stack {
     newNode.next = current
   }
 
+  // * POP
   pop() {
     if (!this.top) return null
 
