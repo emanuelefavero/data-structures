@@ -37,23 +37,7 @@ class Stack {
   }
 }
 
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
+// ---------------------------------------------
 
 // IMPLEMENTATION
 const stack = new Stack() // { data: [] }
