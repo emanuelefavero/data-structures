@@ -51,8 +51,10 @@ class Trie {
 let trie = new Trie()
 
 trie.insert('apple')
+trie.insert('orange')
 
 console.log(trie.search('apple')) // true
 console.log(trie.search('app')) // false
 
 console.log(trie)
+// Trie { root: TrieNode { children: { a: [TrieNode], o: [TrieNode] } } }
