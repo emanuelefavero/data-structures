@@ -46,6 +46,20 @@ class Trie {
 
     return currentNode.children['*'] === true
   }
+
+  searchPrefix(prefix) {
+    let currentNode = this.root
+
+    for (let i = 0; i < prefix.length; i++) {
+      let char = prefix[i]
+
+      if (!currentNode.children[char]) return false
+
+      currentNode = currentNode.children[char]
+    }
+
+    return true
+  }
 }
 
 let trie = new Trie()
@@ -55,6 +69,7 @@ trie.insert('orange')
 
 console.log(trie.search('apple')) // true
 console.log(trie.search('app')) // false
+console.log(trie.searchPrefix('app')) // true
 
 console.log(trie)
 // Trie { root: TrieNode { children: { a: [TrieNode], o: [TrieNode] } } }
