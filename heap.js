@@ -103,5 +103,5 @@ heap.insert(25)
 
 heap.delete()
 
-console.log(heap) // Heap { heap: [ 30, 25, 10 ] }`
+console.log(heap) // Heap { heap: [ 30, 25, 10 ] }
 console.log(heap.peek()) // 30
