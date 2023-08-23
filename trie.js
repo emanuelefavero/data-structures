@@ -4,7 +4,7 @@
 // Tries are used for storing strings in a way that allows for fast retrieval. They are used in many search applications, such as autocomplete and spellcheck
 // NOTE: Each node in the trie is an object (hash table) with keys that are the characters in the word
 
-class TrieNode {
+class Node {
   constructor() {
     this.children = {}
   }
@@ -12,50 +12,52 @@ class TrieNode {
 
 class Trie {
   constructor() {
-    this.root = new TrieNode()
+    this.root = new Node()
   }
 
   // * INSERT
   insert(word) {
-    let currentNode = this.root
+    let current = this.root
 
     for (let i = 0; i < word.length; i++) {
       let char = word[i]
 
-      if (!currentNode.children[char]) {
-        currentNode.children[char] = new TrieNode()
+      if (!current.children[char]) {
+        current.children[char] = new Node()
       }
 
-      currentNode = currentNode.children[char]
+      current = current.children[char]
     }
 
-    currentNode.children['*'] = true
+    current.children['*'] = true
   }
 
   // * SEARCH
+  // Search for a word in the trie
   search(word) {
-    let currentNode = this.root
+    let current = this.root
 
     for (let i = 0; i < word.length; i++) {
       let char = word[i]
 
-      if (!currentNode.children[char]) return false
+      if (!current.children[char]) return false
 
-      currentNode = currentNode.children[char]
+      current = current.children[char]
     }
 
-    return currentNode.children['*'] === true
+    return current.children['*'] === true
   }
 
+  // Search for a prefix in the trie
   searchPrefix(prefix) {
-    let currentNode = this.root
+    let current = this.root
 
     for (let i = 0; i < prefix.length; i++) {
       let char = prefix[i]
 
-      if (!currentNode.children[char]) return false
+      if (!current.children[char]) return false
 
-      currentNode = currentNode.children[char]
+      current = current.children[char]
     }
 
     return true
@@ -72,4 +74,4 @@ console.log(trie.search('app')) // false
 console.log(trie.searchPrefix('app')) // true
 
 console.log(trie)
-// Trie { root: TrieNode { children: { a: [TrieNode], o: [TrieNode] } } }
+// Trie { root: Node { children: { a: [Node], o: [Node] } } }
