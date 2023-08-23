@@ -6,7 +6,7 @@ Remove Vertex O(v + e)
 Remove Edge O(e)
 */
 
-// * Undirected Graph (no direction, like Facebook friends)
+// * Directed Graph (direction, like Twitter followers)
 class Graph {
   constructor() {
     this.adjacencyList = {}
@@ -16,51 +16,37 @@ class Graph {
   addVertex(vertex) {
     if (!this.adjacencyList[vertex]) {
       this.adjacencyList[vertex] = []
-      return true
     }
-
-    return false
   }
 
   // O(1)
-  addEdge(vertex1, vertex2) {
-    if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
-      this.adjacencyList[vertex1].push(vertex2)
-      this.adjacencyList[vertex2].push(vertex1) // if directed, remove this line
-      return true
+  addEdge(fromVertex, toVertex) {
+    if (this.adjacencyList[fromVertex] && this.adjacencyList[toVertex]) {
+      this.adjacencyList[fromVertex].push(toVertex)
     }
-
-    return false
   }
 
   // O(e)
-  removeEdge(vertex1, vertex2) {
-    if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
-      this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
-        (item) => item !== vertex2
+  removeEdge(fromVertex, toVertex) {
+    if (this.adjacencyList[fromVertex] && this.adjacencyList[toVertex]) {
+      this.adjacencyList[fromVertex] = this.adjacencyList[fromVertex].filter(
+        (vertex) => vertex !== toVertex
       )
-
-      // if directed, remove this line:
-      this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
-        (item) => item !== vertex1
-      )
-
-      return true
     }
-
-    return false
   }
 
   // O(v + e)
   removeVertex(vertex) {
     if (!this.adjacencyList[vertex]) return undefined
 
-    for (const adjacentVertex of this.adjacencyList[vertex]) {
-      this.removeEdge(vertex, adjacentVertex)
+    // Remove all edges involving the vertex being removed
+    for (let currentVertex in this.adjacencyList) {
+      this.adjacencyList[currentVertex] = this.adjacencyList[
+        currentVertex
+      ].filter((adjacentVertex) => adjacentVertex !== vertex)
     }
 
     delete this.adjacencyList[vertex]
-    return this
   }
 
   // * Depth-First Search Traverse - O(v + e)
@@ -69,11 +55,16 @@ class Graph {
 
     console.log(vertex)
 
-    this.adjacencyList[vertex].forEach((item) => {
-      if (!visited[item]) {
-        this.DFS(item, visited)
+    this.adjacencyList[vertex].forEach((adjacentVertex) => {
+      if (!visited[adjacentVertex]) {
+        this.DFS(adjacentVertex, visited)
       }
     })
+  }
+
+  // Get all edges from a vertex
+  getEdges(vertex) {
+    return this.adjacencyList[vertex]
   }
 }
 
@@ -82,16 +73,18 @@ let graph = new Graph()
 graph.addVertex('A')
 graph.addVertex('B')
 graph.addVertex('C')
+graph.addVertex('D')
 
 graph.addEdge('A', 'B')
+graph.addEdge('B', 'A')
 graph.addEdge('B', 'C')
-graph.addEdge('A', 'C')
+graph.addEdge('C', 'D')
 
-graph.removeVertex('A')
+graph.removeEdge('C', 'D')
+graph.removeVertex('D')
 
 console.log(graph.adjacencyList)
-// { B: [ 'C' ], C: [ 'B' ] }
+// { A: [ 'B' ], B: [ 'A', 'C' ], C: [] }
 
-graph.addVertex('D')
-graph.addEdge('B', 'D')
-graph.DFS('B') // B C D
+graph.DFS('A') // A B C
+console.log(graph.getEdges('B')) // [ 'A', 'C' ]
