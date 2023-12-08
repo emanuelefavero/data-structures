@@ -14,6 +14,7 @@ class DisjointSet {
 
   makeSet(x) {
     this.parent[x] = x
+    this.size[x] = 1 // initialize the size of each subset to 1
   }
 
   find(x) {
