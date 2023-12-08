@@ -37,6 +37,11 @@ class DisjointSet {
       this.size[rootY] += this.size[rootX]
     }
   }
+
+  // check if two elements are in the same set
+  connected(x, y) {
+    return this.find(x) === this.find(y)
+  }
 }
 
 // -----------------------------
@@ -54,5 +59,7 @@ disjointSet.union(2, 3)
 console.log(disjointSet.find(1)) // 3
 console.log(disjointSet.find(2)) // 3
 console.log(disjointSet.find(3)) // 3
+
+console.log(disjointSet.connected(1, 2)) // true
 
 // Explanation: 1, 2, and 3 have the same root so they are all in the same set
