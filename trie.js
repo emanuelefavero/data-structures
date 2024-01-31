@@ -19,9 +19,7 @@ class Trie {
   insert(word) {
     let current = this.root
 
-    for (let i = 0; i < word.length; i++) {
-      let char = word[i]
-
+    for (let char of word) {
       if (!current.children[char]) {
         current.children[char] = new Node()
       }
@@ -37,11 +35,8 @@ class Trie {
   search(word) {
     let current = this.root
 
-    for (let i = 0; i < word.length; i++) {
-      let char = word[i]
-
+    for (let char of word) {
       if (!current.children[char]) return false
-
       current = current.children[char]
     }
 
@@ -52,11 +47,8 @@ class Trie {
   searchPrefix(prefix) {
     let current = this.root
 
-    for (let i = 0; i < prefix.length; i++) {
-      let char = prefix[i]
-
+    for (let char of prefix) {
       if (!current.children[char]) return false
-
       current = current.children[char]
     }
 
@@ -64,7 +56,10 @@ class Trie {
   }
 }
 
-let trie = new Trie()
+// -----------------------------------
+// TESTS
+
+const trie = new Trie()
 
 trie.insert('apple')
 trie.insert('orange')
