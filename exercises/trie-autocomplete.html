@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>TRIE AUTOCOMPLETE</h1>
+
+    <input type="text" id="search" placeholder="Search fruits..." />
+
+    <div id="output"></div>
+
+    <script>
+      // * TRIE AUTOCOMPLETE
+      class Node {
+        constructor() {
+          this.children = {}
+          this.isEndOfWord = false // Added to indicate the end of a word
+        }
+      }
+
+      class Trie {
+        constructor() {
+          this.root = new Node()
+        }
+
+        insert(word) {
+          let current = this.root
+
+          for (let char of word) {
+            if (!current.children[char]) {
+              current.children[char] = new Node()
+            }
+
+            current = current.children[char]
+          }
+
+          current.isEndOfWord = true // Mark the end of a word
+        }
+
+        searchPrefix(prefix) {
+          let current = this.root
+
+          for (let char of prefix) {
+            if (!current.children[char]) return []
+            current = current.children[char]
+          }
+
+          return this._wordsWithPrefix(prefix, current)
+        }
+
+        // Helper method to get all words with a given prefix
+        _wordsWithPrefix(prefix, node) {
+          let words = []
+
+          if (node.isEndOfWord) {
+            words.push(prefix)
+          }
+
+          for (let char in node.children) {
+            words = words.concat(
+              this._wordsWithPrefix(prefix + char, node.children[char])
+            )
+          }
+
+          return words
+        }
+      }
+
+      // ------------------------------
+
+      // Create a trie and insert some words
+      const fruits = ['apple', 'banana', 'orange', 'pear', 'peach', 'pineapple']
+      const trie = new Trie()
+      for (let fruit of fruits) {
+        trie.insert(fruit)
+      }
+
+      const searchInput = document.getElementById('search')
+      const output = document.getElementById('output')
+
+      // Listen for input event
+      searchInput.addEventListener('input', () => {
+        const prefix = searchInput.value.trim()
+        const words = trie.searchPrefix(prefix)
+
+        // Clear the output if the prefix is empty
+        if (!prefix) {
+          output.innerHTML = ''
+          return
+        }
+
+        // Display the words if found
+        if (words.length) {
+          output.innerHTML = words.join('<br>')
+        } else {
+          output.innerHTML = `${prefix} not found`
+        }
+      })
+    </script>
+  </body>
+</html>
