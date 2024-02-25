@@ -59,10 +59,14 @@
             words.push(prefix)
           }
 
+          // Loop through the children and recursively call the method
           for (let char in node.children) {
-            words = words.concat(
-              this._wordsWithPrefix(prefix + char, node.children[char])
-            )
+            words = [
+              ...words,
+              ...this._wordsWithPrefix(prefix + char, node.children[char]),
+            ]
+
+            // TIP: By passing the prefix + char, we can keep track of the characters that we already visited
           }
 
           return words
@@ -83,6 +87,7 @@
 
       // Listen for input event
       searchInput.addEventListener('input', () => {
+        // Get the words with the given prefix
         const prefix = searchInput.value.trim()
         const words = trie.searchPrefix(prefix)
 
