@@ -34,7 +34,7 @@ class Queue {
   }
 
   getQueue() {
-    return this.stack2.concat(this.stack1.reverse())
+    return [...this.stack2, ...this.stack1.reverse()]
   }
 }
 
@@ -67,4 +67,7 @@ queue.dequeue() // 1
 console.log(queue.peek()) // 2
 console.log(queue.isEmpty()) // false
 console.log(queue) // Queue { stack1: [], stack2: [2] }
-console.log(queue.getQueue()) // [2]
+
+// get queue
+queue.enqueue(3)
+console.log(queue.getQueue()) // [2, 3]
