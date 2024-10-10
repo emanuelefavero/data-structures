@@ -32,12 +32,11 @@ class LinkedList {
 
   // REVERSE LINKED LIST
   reverse() {
-    let current = this.head
     let previous = null
-    let next = null
+    let current = this.head
 
     while (current) {
-      next = current.next
+      let next = current.next
       current.next = previous
       previous = current
       current = next
